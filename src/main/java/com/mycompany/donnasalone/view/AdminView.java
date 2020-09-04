@@ -5,17 +5,25 @@
  */
 package com.mycompany.donnasalone.view;
 
+import com.mycompany.donnasalone.controll.AdminController;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author jonas
  */
 public class AdminView extends javax.swing.JFrame {
 
+    private final AdminController admc;
+
     /**
      * Creates new form Admin
      */
     public AdminView() {
         initComponents();
+         admc = new AdminController(this);
     }
 
     /**
@@ -78,7 +86,10 @@ public class AdminView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+
+        admc.cadastrar();
+         admc.limar();
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
@@ -130,4 +141,26 @@ public class AdminView extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    public void showMesagem(String msg) {
+         JOptionPane.showMessageDialog(null, msg);
+    }
+
+    public JPasswordField getjPasswordField1() {
+        return jPasswordField1;
+    }
+
+    public void setjPasswordField1(JPasswordField jPasswordField1) {
+        this.jPasswordField1 = jPasswordField1;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public void setjTextField1(JTextField jTextField1) {
+        this.jTextField1 = jTextField1;
+    }
+    
+    
 }

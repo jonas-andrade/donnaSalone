@@ -1,45 +1,43 @@
 package com.mycompany.donnasalone.model;
 
-import java.util.Date;
-
 public class Admin {
 int idAdmin;
 String nomeAdmin;
-char sexoAdmin;
-Date dataDeNascimento;
+String senhaAdmin;
+
 public Admin(){
     
 }
 
-    public Admin(String nomeAdmin, char sexoAdmin, Date dataDeNascimento) {
+    public Admin(String nomeAdmin, String senhaAdmin) {
         this.nomeAdmin = nomeAdmin;
-        this.sexoAdmin = sexoAdmin;
-        this.dataDeNascimento = dataDeNascimento;
+        this.senhaAdmin = senhaAdmin;
     }
 
     public String getNomeAdmin() {
         return nomeAdmin;
     }
 
-    public char getSexoAdmin() {
-        return sexoAdmin;
-    }
-
-    public Date getDataDeNascimento() {
-        return dataDeNascimento;
-    }
-
     public void setNomeAdmin(String nomeAdmin) {
         this.nomeAdmin = nomeAdmin;
     }
 
-    public void setSexoAdmin(char sexoAdmin) {
-        this.sexoAdmin = sexoAdmin;
+    public String getSenhaAdmin() {
+        return senhaAdmin;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
-        this.dataDeNascimento = dataDeNascimento;
+    public void setSenhaAdmin(String senhaAdmin) {
+        this.senhaAdmin = senhaAdmin;
     }
-    
+
+  
+
+    public void persistir(Admin admin) {
+        System.out.println("(( Model ))\n persistindo no banco de dados!!!!");
+        
+        
+    }
+
+
 
 }
