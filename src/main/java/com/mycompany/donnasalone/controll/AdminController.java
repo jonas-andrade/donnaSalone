@@ -6,8 +6,13 @@
 package com.mycompany.donnasalone.controll;
 
 import com.mycompany.donnasalone.controll.helpers.AdminHelper;
+import com.mycompany.donnasalone.dao.AdminDAO;
+import com.mycompany.donnasalone.dao.Conex;
 import com.mycompany.donnasalone.model.Admin;
 import com.mycompany.donnasalone.view.AdminView;
+import com.mycompany.donnasalone.view.ServiceView;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 /**
  *
@@ -24,17 +29,22 @@ public class AdminController {
         
     }
     
-    public void cadastrar(){
-      //pegar admin
-      Admin admin = helper.getAdminModel();
-      System.out.println("nome: "+admin.getNomeAdmin()+" senha: "+admin.getSenhaAdmin());
+    public void enter() throws SQLException{
    
+        Admin admm =  helper.getAdminModel();
+        Connection cox =  new Conex().getConnection();
+        AdminDAO admindao = new AdminDAO(cox);
+        
+        admindao.insert(admm);
+      
     }
 
     public void limar() {
         helper.limpaAdminView();
 
     }
+    
+    
     
     
 }

@@ -1,7 +1,7 @@
 package com.mycompany.donnasalone.model;
 
 public class Admin {
-int idAdmin;
+    
 String nomeAdmin;
 String senhaAdmin;
 
@@ -32,11 +32,7 @@ public Admin(){
 
   
 
-    public void persistir(Admin admin) {
-        System.out.println("(( Model ))\n persistindo no banco de dados!!!!");
-        
-        
-    }
+    
 
 
 

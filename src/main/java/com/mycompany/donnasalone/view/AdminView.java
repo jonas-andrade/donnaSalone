@@ -23,7 +23,7 @@ public class AdminView extends javax.swing.JFrame {
      */
     public AdminView() {
         initComponents();
-         admc = new AdminController(this);
+        admc = new AdminController(this);
     }
 
     /**
@@ -87,7 +87,7 @@ public class AdminView extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        admc.cadastrar();
+         admc.enter();
          admc.limar();
        
     }//GEN-LAST:event_jButton1ActionPerformed
