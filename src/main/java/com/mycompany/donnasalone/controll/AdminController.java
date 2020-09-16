@@ -10,7 +10,6 @@ import com.mycompany.donnasalone.dao.AdminDAO;
 import com.mycompany.donnasalone.dao.Conex;
 import com.mycompany.donnasalone.model.Admin;
 import com.mycompany.donnasalone.view.AdminView;
-import com.mycompany.donnasalone.view.ServiceView;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -29,19 +28,33 @@ public class AdminController {
         
     }
     
-    public void enter() throws SQLException{
-   
-        Admin admm =  helper.getAdminModel();
-        Connection cox =  new Conex().getConnection();
-        AdminDAO admindao = new AdminDAO(cox);
+    public void enter() throws SQLException {
+        Connection cox = null;
+        Admin admm;
+        AdminDAO admindao;
+        boolean select;
         
-        admindao.insert(admm);
-      
+        try {
+          cox = new Conex().getConnection();
+          admm =  helper.getAdminModel();
+          admindao = new AdminDAO(cox);
+          select = admindao.select(admm);
+          if(select){
+              view.showMesagem("foi encontrado com sucesso !!!");
+          }else{
+              view.showMesagem("erro ao buscar resultSet");
+          }
+        } catch (SQLException ex) {
+            view.showMesagem("erro ao select: "+ex);
+           
+        }finally{cox.close();}
+     
+        
+
     }
 
-    public void limar() {
+    public void limpar() {
         helper.limpaAdminView();
-
     }
     
     

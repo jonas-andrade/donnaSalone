@@ -2,34 +2,36 @@ package com.mycompany.donnasalone.model;
 
 public class Admin {
     
-String nomeAdmin;
-String senhaAdmin;
+private String login;
+private String pass;
 
 public Admin(){
     
 }
 
-    public Admin(String nomeAdmin, String senhaAdmin) {
-        this.nomeAdmin = nomeAdmin;
-        this.senhaAdmin = senhaAdmin;
+    public Admin(String login, String pass) {
+        this.login = login;
+        this.pass = pass;
     }
 
-    public String getNomeAdmin() {
-        return nomeAdmin;
+    public String getLogin() {
+        return login;
     }
 
-    public void setNomeAdmin(String nomeAdmin) {
-        this.nomeAdmin = nomeAdmin;
+    public String getPass() {
+        return pass;
     }
 
-    public String getSenhaAdmin() {
-        return senhaAdmin;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public void setSenhaAdmin(String senhaAdmin) {
-        this.senhaAdmin = senhaAdmin;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
+
+  
   
 
     

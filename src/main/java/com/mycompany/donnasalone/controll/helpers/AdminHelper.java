@@ -24,7 +24,7 @@ public class AdminHelper {
     public Admin getAdminModel(){
        String nome =  view.getjTextField1().getText();
        String senha = view.getjPasswordField1().getText();
-       return new Admin(nome,senha);
+       return  new Admin(nome,senha);
     }
     public void setAdminModel(String nome, String senha){
           view.getjTextField1().setText(nome);

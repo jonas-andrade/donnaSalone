@@ -21,7 +21,7 @@ public class Conex {
   Connection con;
  public Connection getConnection(){
     try{
-            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/donnaSalone", "jonas_admin" , "jonas61167");
+            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/donnaSalone", "jonas_admin" , "admin");
             System.out.println("connection SUCEfull@@@");
     }catch(SQLException e){
         JOptionPane.showMessageDialog(null," ocorreu um erro na conection "+e);

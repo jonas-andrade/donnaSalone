@@ -8,7 +8,9 @@ package com.mycompany.donnasalone.dao;
 import com.mycompany.donnasalone.model.Admin;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 
@@ -25,18 +27,26 @@ public class AdminDAO {
 
  public void insert(Admin admin) throws SQLException{
     
-     String sql = "insert into donnaSalone (user,pass) values('"+admin.getNomeAdmin()+"','"+admin.getSenhaAdmin()+"')"; 
+     String sql = "insert into admin (login,pass) values(?,?)"; 
      
         PreparedStatement stmt = connection.prepareStatement(sql);
+        stmt.setString(1, admin.getLogin());
+        stmt.setString(2, admin.getPass());
+
         stmt.execute();
-        
-        connection.close();
-     
-     
-     
+         
  }
    
-   
+ public boolean select(Admin admin) throws SQLException{
+     
+     String sql = "select * from admin where login=? and pass=?";
+     PreparedStatement stmt = connection.prepareStatement(sql);
+     stmt.setString(1,admin.getLogin());
+     stmt.setString(2, admin.getPass());
+     stmt.execute();
+    
+    return stmt.getResultSet().next(); 
+ } 
    
    
     
