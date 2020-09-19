@@ -6,6 +6,7 @@
 package com.mycompany.donnasalone.controll;
 
 import com.mycompany.donnasalone.view.ServiceView;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,6 +22,136 @@ public class ServiceController {
          this.view = view;
     }
     
+    
+    public void updatetable(){
+        
+        
+        
+              if (view.getjComboBox1().getSelectedIndex() == 0){
+                  
+               view.getjTable1().setModel(new DefaultTableModel(
+                  new Object [][] {
+                {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "       Nome", "       Preço", "       TIpo", "        Descrição"
+            }
+                 ));  
+                  
+                  
+            
+        }else if (view.getjComboBox1().getSelectedIndex() == 1){
+                
+                 view.getjTable1().setModel(new DefaultTableModel(
+                  new Object [][] {
+                {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "       Nome", "       Email", "       Telefone", "        Nascimento"
+            }
+                 ));  
+                  
+            
+                 
+                  
+        }else if (view.getjComboBox1().getSelectedIndex() == 2){
+                
+                 view.getjTable1().setModel(new DefaultTableModel(
+                  new Object [][] {
+                {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "       Nome", "       Preço", "       TIpo", "        Descrição"
+            }
+                 ));  
+                  
+                
+
+        }else if (view.getjComboBox1().getSelectedIndex() == 3){
+                
+                 view.getjTable1().setModel(new DefaultTableModel(
+                  new Object [][] {
+                {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "       Nome", "       Preço", "       Tipo", "        Descrição"
+            }
+                 ));  
+                  
+                 
+   
+        }else if (view.getjComboBox1().getSelectedIndex() == 4){
+                
+                view.getjTable1().setModel(new DefaultTableModel(
+                  new Object [][] {
+                {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "       Nome", "       Preço", "       Tipo", "        Descrição"
+            }
+                 ));  
+                  
+                 
+
+        }
+        
+        
+    }
     
     
 }
