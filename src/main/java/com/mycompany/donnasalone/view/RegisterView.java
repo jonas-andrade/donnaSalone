@@ -44,10 +44,15 @@ public class RegisterView extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Tela cadastro");
         setLocation(new java.awt.Point(500, 30));
         setLocationByPlatform(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 36)); // NOI18N
@@ -119,7 +124,7 @@ public class RegisterView extends javax.swing.JFrame {
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 139, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon("/home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/img/free")); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 560, 470));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -139,6 +144,10 @@ public class RegisterView extends javax.swing.JFrame {
     private void jButtonComplementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComplementActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonComplementActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        new  ServiceView().setVisible(true);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

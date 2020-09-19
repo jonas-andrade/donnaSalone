@@ -55,21 +55,22 @@ public class ServiceController {
                 
                  view.getjTable1().setModel(new DefaultTableModel(
                   new Object [][] {
-                {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {"   Jose Antonio", "  joseM819@gmail.com", "      85991773278", "      03/12/1995", "      rua Barroso Costa fortaleza ceara"},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null},
+                {null, null, null, null,null}
             },
             new String [] {
-                "       Nome", "       Email", "       Telefone", "        Nascimento"
+                "       Nome", "       Email", "       Telefone", "        Nascimento", "        Endereço"
             }
                  ));  
                   
@@ -80,8 +81,8 @@ public class ServiceController {
                 
                  view.getjTable1().setModel(new DefaultTableModel(
                   new Object [][] {
-                {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
-                {null, null, null, null},
+                {"   Gel MAN", "  R$ 25,00", "      MasterCard", "       5%"},
+                {"   corte de cabelo", " R$ 12,00", "EloCard", " Não"},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -94,7 +95,7 @@ public class ServiceController {
                 {null, null, null, null}
             },
             new String [] {
-                "       Nome", "       Preço", "       TIpo", "        Descrição"
+                "       Produto", "       Preço", "       Cartão de Credito", "        Desconto"
             }
                  ));  
                   
@@ -150,6 +151,30 @@ public class ServiceController {
 
         }
         
+        
+    }
+
+    public void limpar() {
+        
+           view.getjTable1().setModel(new DefaultTableModel(
+                  new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "       Nome", "       Preço", "       Tipo", "        Descrição"
+            }
+                 ));  
         
     }
     
