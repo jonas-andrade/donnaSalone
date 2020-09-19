@@ -10,6 +10,7 @@ import com.mycompany.donnasalone.dao.AdminDAO;
 import com.mycompany.donnasalone.dao.Conex;
 import com.mycompany.donnasalone.model.Admin;
 import com.mycompany.donnasalone.view.AdminView;
+import com.mycompany.donnasalone.view.ServiceView;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -39,10 +40,13 @@ public class AdminController {
           admm =  helper.getAdminModel();
           admindao = new AdminDAO(cox);
           select = admindao.select(admm);
+            ServiceView service = new ServiceView();
           if(select){
-              view.showMesagem("foi encontrado com sucesso !!!");
+              view.setVisible(false);
+              service.setVisible(true);
+              
           }else{
-              view.showMesagem("erro ao buscar resultSet");
+              view.showMesagem("login ou senha invalidas!\n Tente Novamente!");
           }
         } catch (SQLException ex) {
             view.showMesagem("erro ao select: "+ex);

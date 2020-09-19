@@ -10,6 +10,7 @@
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/view/ServiceView.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/dao/AdminDAO.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Admin.java
+/home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/controll/ServiceController.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Report.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/view/RegisterView.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Client.java
