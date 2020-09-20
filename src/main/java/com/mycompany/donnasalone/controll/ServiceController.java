@@ -5,7 +5,12 @@
  */
 package com.mycompany.donnasalone.controll;
 
+import com.mycompany.donnasalone.dao.Conex;
+import com.mycompany.donnasalone.dao.ServiceDAO;
+import com.mycompany.donnasalone.model.Service;
 import com.mycompany.donnasalone.view.ServiceView;
+import java.sql.Connection;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,11 +20,13 @@ import javax.swing.table.DefaultTableModel;
 public class ServiceController {
 
     private final ServiceView view;
+    private final Connection con;
     
     
 
     public ServiceController(ServiceView view){
          this.view = view;
+         this.con = new Conex().getConnection();
     }
     
     
@@ -176,6 +183,36 @@ public class ServiceController {
             }
                  ));  
         
+    }
+
+    public void reader() throws SQLException {
+        
+        
+       if(view.getjComboBox1().getSelectedIndex() == 1) {
+    DefaultTableModel table = (DefaultTableModel) view.getjTable1().getModel();
+    
+    ServiceDAO sdao = new ServiceDAO(con);
+    Service service = null;
+    
+    for (Service s: sdao.read(service)){
+        
+        table.addRow(new Object[]{
+            
+            s.getNomeService(),
+            s.getPrecoService(),
+            s.getTypeService(),
+            s.getDescribeService()
+        
+        
+        
+        });
+        
+    }// fim do for
+        
+       }else{
+           System.out.println(" ele executado  evento não responde !!@@@");
+       }  
+       
     }
     
     

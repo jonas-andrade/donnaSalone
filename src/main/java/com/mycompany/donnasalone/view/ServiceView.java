@@ -7,6 +7,9 @@
 package com.mycompany.donnasalone.view;
 
 import com.mycompany.donnasalone.controll.ServiceController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
@@ -28,6 +31,11 @@ public class ServiceView extends javax.swing.JFrame {
         initComponents();
         this.view = new AdminView();
         controller = new ServiceController(this);
+           try {
+               controller.reader();
+           } catch (SQLException ex) {
+               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
+           }
         
     }
 
@@ -201,11 +209,17 @@ public class ServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-       controller.updatetable(); 
+       controller.updatetable();
+           try {
+               controller.reader();
+           } catch (SQLException ex) {
+               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
+           }
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         controller.limpar();
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public JComboBox<String> getjComboBox1() {

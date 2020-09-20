@@ -4,13 +4,13 @@ public class Service {
     int idService;
     String nomeService;
     float precoService;
-    String typeService;
+    char typeService;
     String describeService;
 public Service(){
     
 }
 
-    public Service(String nomeService, float precoService, String typeService, String describeService) {
+    public Service(String nomeService, float precoService, char typeService, String describeService) {
         this.nomeService = nomeService;
         this.precoService = precoService;
         this.typeService = typeService;
@@ -25,7 +25,7 @@ public Service(){
         return precoService;
     }
 
-    public String getTypeService() {
+    public char getTypeService() {
         return typeService;
     }
 
@@ -41,7 +41,7 @@ public Service(){
         this.precoService = precoService;
     }
 
-    public void setTypeService(String typeService) {
+    public void setTypeService(char typeService) {
         this.typeService = typeService;
     }
 
