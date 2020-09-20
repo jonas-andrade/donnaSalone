@@ -16,6 +16,7 @@ public class RegisterView extends javax.swing.JFrame {
      */
     public RegisterView() {
         initComponents();
+         setLocationRelativeTo(null);
     }
 
     /**

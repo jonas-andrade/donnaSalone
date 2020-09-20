@@ -33,16 +33,18 @@ public class ServiceDAO {
         String sql = "select * from service";
         PreparedStatement stmt =  null;
          List<Service> listService  = new ArrayList<>();
+         ResultSet result = null;
         
         try {
             stmt = connection.prepareStatement(sql);
-            stmt.executeQuery();
-            ResultSet result = stmt.getResultSet();
+            
+            result = stmt.executeQuery();
             
             while(result.next()){
-                service.setNomeService(result.getString(2));
+                service.setIdService(result.getInt("idService"));
+                service.setNomeService(result.getString("nomeService"));
                 service.setPrecoService(result.getFloat("precoService"));
-                service.setTypeService((char) result.getByte(4));
+                service.setTypeService((char) result.getByte("typeService"));
                 service.setDescribeService(result.getString("describeService")); 
                 listService.add(service);
                 
@@ -51,6 +53,8 @@ public class ServiceDAO {
             Logger.getLogger(ServiceDAO.class.getName()).log(Level.SEVERE, null, ex);
         }finally{
             connection.close();
+         
+            
         }
       
      return listService;   

@@ -31,11 +31,8 @@ public class ServiceView extends javax.swing.JFrame {
         initComponents();
         this.view = new AdminView();
         controller = new ServiceController(this);
-           try {
-               controller.reader();
-           } catch (SQLException ex) {
-               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
-           }
+        setLocationRelativeTo(null);
+          
         
     }
 
@@ -65,10 +62,13 @@ public class ServiceView extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setLocation(400,90);
+        setLocation(new java.awt.Point(0, 0));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 formWindowClosed(evt);
+            }
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
 
@@ -85,7 +85,7 @@ public class ServiceView extends javax.swing.JFrame {
         jTable1.setForeground(new java.awt.Color(26, 183, 247));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"   Corte de cabelo", "  R$ 12,00", "      sale", null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -101,15 +101,7 @@ public class ServiceView extends javax.swing.JFrame {
             new String [] {
                 "       Nome", "       Preço", "       Tipo", "       descrição", ""
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jTable1.setToolTipText("");
         jTable1.setGridColor(new java.awt.Color(255, 248, 248));
         jTable1.setName(""); // NOI18N
@@ -209,18 +201,26 @@ public class ServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-       controller.updatetable();
            try {
-               controller.reader();
+               controller.updatetable();
            } catch (SQLException ex) {
                Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
            }
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         controller.limpar();
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+           try {
+               controller.updatetable();
+           } catch (SQLException ex) {
+               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
+           }
+    }//GEN-LAST:event_formWindowOpened
 
     public JComboBox<String> getjComboBox1() {
         return jComboBox1;
