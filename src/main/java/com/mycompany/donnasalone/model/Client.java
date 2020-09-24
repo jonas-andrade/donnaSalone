@@ -6,12 +6,12 @@ public class Client {
 int idClient;
 String nomeClient;
 String sexoClient;
-Date dataDeNascimento;
+String dataDeNascimento;
 
     public Client() {
     }
 
-    public Client(String nomeClient, String sexoClient, Date dataDeNascimento) {
+    public Client(String nomeClient, String sexoClient, String dataDeNascimento) {
         this.nomeClient = nomeClient;
         this.sexoClient = sexoClient;
         this.dataDeNascimento = dataDeNascimento;
@@ -41,11 +41,11 @@ Date dataDeNascimento;
         this.sexoClient = sexoClient;
     }
 
-    public Date getDataDeNascimento() {
+    public String getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
+    public void setDataDeNascimento(String dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 

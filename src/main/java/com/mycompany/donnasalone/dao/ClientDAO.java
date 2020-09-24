@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,9 +20,10 @@ import java.util.List;
  * @author jonas
  */
 public class ClientDAO {
-   private Connection con;
+   private final Connection con;
     private PreparedStatement stmt;
     private ResultSet result;
+    private final SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
     
     public ClientDAO(Connection con){
         this.con =con;
@@ -38,7 +41,7 @@ public class ClientDAO {
             client.setIdClient(result.getInt("idClient"));
             client.setNomeClient(result.getString("nomeClient"));
             client.setSexoClient(result.getString("sexoClient"));
-            client.setDataDeNascimento(result.getDate("dateClient"));
+            client.setDataDeNascimento(sm.format(result.getDate("dateClient")));
             
             list.add(client);
             
@@ -54,7 +57,8 @@ public class ClientDAO {
         
         return list;
     }
-    
+
+  
     
     
 }
