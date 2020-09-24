@@ -5,6 +5,7 @@
  */
 package com.mycompany.donnasalone.controll;
 
+import com.mycompany.donnasalone.dao.ClientDAO;
 import com.mycompany.donnasalone.dao.Conex;
 import com.mycompany.donnasalone.dao.ServiceDAO;
 import com.mycompany.donnasalone.model.Service;
@@ -37,9 +38,9 @@ public class ServiceController {
         DefaultTableModel viewModel = (DefaultTableModel) view.getjTable1().getModel();
          viewModel.setNumRows(0);
         
-          if(view.getjComboBox1().getSelectedIndex() == 0){
+          if(view.getjComboBox1().getSelectedIndex() == 0){ // dados de Service
          
-             try{ 
+            
                  
        
              ServiceDAO dao = new ServiceDAO(con);
@@ -57,39 +58,34 @@ public class ServiceController {
                    null });  
            }// end-for
                  
-            }catch(SQLException e){
-                System.out.println("error update table: "+e);
-            }finally{
-            con.close();
-           }
            
-             }else if(view.getjComboBox1().getSelectedIndex() == 1){
+           
+             }else if(view.getjComboBox1().getSelectedIndex() == 1){ //  dados do Cliente
                
-                  try{ 
-                 
-       
-             ServiceDAO dao = new ServiceDAO(con);
-             int count = dao.read().size();
+              ClientDAO cdao = new ClientDAO(con);
                viewModel.setNumRows(0);
+               
+                int ccount = cdao.cread().size();
               
-                for (int i=0;i<count;i++){
+                for (int i=0;i<ccount;i++){
                     
                    viewModel.addRow(new Object[]{
                    
-                   dao.read().get(i).getNomeService(),
-                   dao.read().get(i).getPrecoService(),
-                   dao.read().get(i).getTypeService(),
-                   dao.read().get(i).getDescribeService(),
-                   null });  
+                   cdao.cread().get(i).getNomeClient(),
+                   cdao.cread().get(i).getSexoClient(),
+                   cdao.cread().get(i).getDataDeNascimento(),
+                   null,
+                   null }); 
+                 
+//              
+                   
            }// end-for
                  
-            }catch(SQLException e){
-                System.out.println("error update table: "+e);
-            }finally{
-            con.close();
-           }
+          
                  
+             }else if (view.getjComboBox1().getSelectedIndex() == 2){
                  
+                 view.showSms("em obra! @@@");
                  
              }
         

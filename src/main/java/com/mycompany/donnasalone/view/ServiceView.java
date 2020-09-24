@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
@@ -159,7 +160,7 @@ public class ServiceView extends javax.swing.JFrame {
         jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(15, 114, 241));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Serviço", "Cliente", "Preço", "Prazo", "Demanda", "help" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Serviço", "Cliente", "Endereço" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -314,5 +315,9 @@ public class ServiceView extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    public void showSms(String sms) {
+        JOptionPane.showMessageDialog(null, sms);
+    }
 
 }
