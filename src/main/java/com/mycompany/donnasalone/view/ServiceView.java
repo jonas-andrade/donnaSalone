@@ -201,25 +201,24 @@ public class ServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-           try {
-               controller.updatetable();
+       try {
+               this.controller.checked();
            } catch (SQLException ex) {
                Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
            }
+    
+        
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        controller.limpar();
+     
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-           try {
-               controller.updatetable();
-           } catch (SQLException ex) {
-               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
-           }
+         
+          
     }//GEN-LAST:event_formWindowOpened
 
     public JComboBox<String> getjComboBox1() {

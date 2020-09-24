@@ -9,11 +9,12 @@ import com.mycompany.donnasalone.dao.Conex;
 import com.mycompany.donnasalone.dao.ServiceDAO;
 import com.mycompany.donnasalone.model.Service;
 import com.mycompany.donnasalone.view.ServiceView;
+
+
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Iterator;
-
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -31,138 +32,76 @@ public class ServiceController {
          this.con = new Conex().getConnection();
     }
     
-    
-    public void updatetable() throws SQLException{
+   
+    public void checked() throws SQLException {
+        DefaultTableModel viewModel = (DefaultTableModel) view.getjTable1().getModel();
+         viewModel.setNumRows(0);
         
-                ServiceDAO sdao = new ServiceDAO(con);
+          if(view.getjComboBox1().getSelectedIndex() == 0){
+         
+             try{ 
+                 
+       
+             ServiceDAO dao = new ServiceDAO(con);
+             int count = dao.read().size();
+               viewModel.setNumRows(0);
+              
+                for (int i=0;i<count;i++){
+                    
+                   viewModel.addRow(new Object[]{
+                   
+                   dao.read().get(i).getNomeService(),
+                   dao.read().get(i).getPrecoService(),
+                   dao.read().get(i).getTypeService(),
+                   dao.read().get(i).getDescribeService(),
+                   null });  
+           }// end-for
+                 
+            }catch(SQLException e){
+                System.out.println("error update table: "+e);
+            }finally{
+            con.close();
+           }
+           
+             }else if(view.getjComboBox1().getSelectedIndex() == 1){
+               
+                  try{ 
+                 
+       
+             ServiceDAO dao = new ServiceDAO(con);
+             int count = dao.read().size();
+               viewModel.setNumRows(0);
+              
+                for (int i=0;i<count;i++){
+                    
+                   viewModel.addRow(new Object[]{
+                   
+                   dao.read().get(i).getNomeService(),
+                   dao.read().get(i).getPrecoService(),
+                   dao.read().get(i).getTypeService(),
+                   dao.read().get(i).getDescribeService(),
+                   null });  
+           }// end-for
+                 
+            }catch(SQLException e){
+                System.out.println("error update table: "+e);
+            }finally{
+            con.close();
+           }
+                 
+                 
+                 
+             }
         
-        switch (view.getjComboBox1().getSelectedIndex()) {
-            case 0:
-                DefaultTableModel t = (DefaultTableModel) view.getjTable1().getModel();
-                Service s = new Service();
-                for (Service service : sdao.read(s)) {
-                    t.addRow(new Object[]{
-                        service.getNomeService(),
-                        service.getPrecoService(),
-                        service.getTypeService(),
-                        service.getDescribeService()
-                            
-                            
-                    });
-                } //                  
-//               view.getjTable1().setModel(new DefaultTableModel(
-//                  new Object [][] {
-//                {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null}
-//            },
-//            new String [] {
-//                "       Nome", "       Preço", "       TIpo", "        Descrição"
-//            }
-//                 ));
-//                  
-                break;
-            case 1:
-                view.getjTable1().setModel(new DefaultTableModel(
-                        new Object [][] {
-                            {"   Jose Antonio", "  joseM819@gmail.com", "      85991773278", "      03/12/1995", "      rua Barroso Costa fortaleza ceara"},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null},
-                            {null, null, null, null,null}
-                        },
-                        new String [] {
-                            "       Nome", "       Email", "       Telefone", "        Nascimento", "        Endereço"
-                        }
-                ));
-                break;
-            case 2:
-                view.getjTable1().setModel(new DefaultTableModel(
-                        new Object [][] {
-                            {"   Gel MAN", "  R$ 25,00", "      MasterCard", "       5%"},
-                            {"   corte de cabelo", " R$ 12,00", "EloCard", " Não"},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null}
-                        },
-                        new String [] {
-                            "       Produto", "       Preço", "       Cartão de Credito", "        Desconto"
-                        }
-                ));
-                break;
-            case 3:
-                view.getjTable1().setModel(new DefaultTableModel(
-                        new Object [][] {
-                            {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null}
-                        },
-                        new String [] {
-                            "       Nome", "       Preço", "       Tipo", "        Descrição"
-                        }
-                ));
-                break;
-            case 4:
-                view.getjTable1().setModel(new DefaultTableModel(
-                        new Object [][] {
-                            {"   Corte de cabelo", "  R$ 12,00", "      sale", "       bla bla"},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null},
-                            {null, null, null, null}
-                        },
-                        new String [] {
-                            "       Nome", "       Preço", "       Tipo", "        Descrição"
-                        }
-                ));
-                break;
-            default:
-                break;
-        }
+       
         
-        
+           
+             
     }
 
+    
+    
+/*
     public void limpar() {
         
            view.getjTable1().setModel(new DefaultTableModel(
@@ -186,34 +125,12 @@ public class ServiceController {
                  ));  
         
     }
-//
-//    public void reader() throws SQLException {
-//    
-////    DefaultTableModel table = (DefaultTableModel) view.getjTable1().getModel();
-////    
-//    ServiceDAO sdao = new ServiceDAO(con);
-//
-//        Service service = null;
-//    
-//       
-//      
-//    
-//        for (Service s : sdao.read(service)) {
-//            
-//            
-//           
-////            table.addRow(new Object[]{
-////                
-////                s.getNomeService(),
-////                s.getPrecoService(),
-////                s.getTypeService(),
-////                s.getDescribeService()
-////                
-////            });
-//        } // fim do for
-//          
-//       
-//    }
-    
-    
+   
+        
 }
+
+ */
+
+
+
+    }
