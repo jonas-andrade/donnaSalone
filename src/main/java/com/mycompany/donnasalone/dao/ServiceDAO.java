@@ -30,7 +30,7 @@ public class ServiceDAO {
         
     }
  
-    public List<Service> read() throws SQLException{
+    public List<Service> readService() throws SQLException{
         
         stmt =  null;
          List<Service> listService  = new ArrayList<>();

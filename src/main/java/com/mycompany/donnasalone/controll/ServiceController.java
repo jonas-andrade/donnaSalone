@@ -5,10 +5,11 @@
  */
 package com.mycompany.donnasalone.controll;
 
+import com.mycompany.donnasalone.dao.AddressDAO;
 import com.mycompany.donnasalone.dao.ClientDAO;
 import com.mycompany.donnasalone.dao.Conex;
 import com.mycompany.donnasalone.dao.ServiceDAO;
-import com.mycompany.donnasalone.model.Service;
+
 import com.mycompany.donnasalone.view.ServiceView;
 
 
@@ -44,17 +45,18 @@ public class ServiceController {
                  
        
              ServiceDAO dao = new ServiceDAO(con);
-             int count = dao.read().size();
+             int count = dao.readService().size();
                viewModel.setNumRows(0);
               
                 for (int i=0;i<count;i++){
                     
                    viewModel.addRow(new Object[]{
                    
-                   dao.read().get(i).getNomeService(),
-                   dao.read().get(i).getPrecoService(),
-                   dao.read().get(i).getTypeService(),
-                   dao.read().get(i).getDescribeService(),
+                   dao.readService().get(i).getNomeService(),
+                   dao.readService().get(i).getPrecoService(),
+                   dao.readService().get(i).getTypeService(),
+                   dao.readService().get(i).getDescribeService(),
+                   null,
                    null });  
            }// end-for
                  
@@ -65,15 +67,16 @@ public class ServiceController {
               ClientDAO cdao = new ClientDAO(con);
                viewModel.setNumRows(0);
                
-                int ccount = cdao.cread().size();
+                int ccount = cdao.readClient().size();
               
                 for (int i=0;i<ccount;i++){
                     
                    viewModel.addRow(new Object[]{
                    
-                   cdao.cread().get(i).getNomeClient(),
-                   cdao.cread().get(i).getSexoClient(),
-                   cdao.cread().get(i).getDataDeNascimento(),
+                   cdao.readClient().get(i).getNomeClient(),
+                   cdao.readClient().get(i).getSexoClient(),
+                   cdao.readClient().get(i).getDataDeNascimento(),
+                   null,
                    null,
                    null }); 
                  
@@ -84,8 +87,27 @@ public class ServiceController {
           
                  
              }else if (view.getjComboBox1().getSelectedIndex() == 2){
+                 AddressDAO adao = new AddressDAO(con);
+                 viewModel.setNumRows(0);
                  
-                 view.showSms("em obra! @@@");
+                 for (int i = 0; i < adao.readAddress().size();i++){
+                 
+                 viewModel.addRow(new Object[]{
+                        adao.readAddress().get(i).getStreet(),
+                        adao.readAddress().get(i).getNeighborhood(),
+                        adao.readAddress().get(i).getCounty(),
+                        adao.readAddress().get(i).getState(),
+                        adao.readAddress().get(i).getCountry(),
+                        adao.readAddress().get(i).getNationality()
+                     
+                     
+                 });
+                 
+                 
+                 
+             }
+                 
+                 
                  
              }
         

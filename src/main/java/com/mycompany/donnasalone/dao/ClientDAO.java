@@ -27,7 +27,7 @@ public class ClientDAO {
         
     }
     
-    public List<Client> cread() throws SQLException{
+    public List<Client> readClient() throws SQLException{
            List<Client> list = new ArrayList<>();
         try{
         stmt = con.prepareStatement("select * from client");

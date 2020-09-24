@@ -23,54 +23,64 @@ public class Address {
         this.nationality = nationality;
     }
 
+    public int getIdAddress() {
+        return idAddress;
+    }
+
+    public void setIdAddress(int idAddress) {
+        this.idAddress = idAddress;
+    }
+
     public String getStreet() {
         return street;
-    }
-
-    public String getNeighborhood() {
-        return neighborhood;
-    }
-
-    public String getCounty() {
-        return county;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getNationality() {
-        return nationality;
     }
 
     public void setStreet(String street) {
         this.street = street;
     }
 
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
     public void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
+    }
+
+    public String getCounty() {
+        return county;
     }
 
     public void setCounty(String county) {
         this.county = county;
     }
 
+    public String getState() {
+        return state;
+    }
+
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getCountry() {
+        return country;
     }
 
     public void setCountry(String country) {
         this.country = country;
     }
 
+    public String getNationality() {
+        return nationality;
+    }
+
     public void setNationality(String nationality) {
         this.nationality = nationality;
     }
-    
+
+  
+
 
     
 }

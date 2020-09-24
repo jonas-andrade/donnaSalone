@@ -39,7 +39,7 @@ public class AdminController {
           cox = new Conex().getConnection();
           admm =  helper.getAdminModel();
           admindao = new AdminDAO(cox);
-          select = admindao.select(admm);
+          select = admindao.readAdmin(admm);
             ServiceView service = new ServiceView();
           if(select){
               view.setVisible(false);

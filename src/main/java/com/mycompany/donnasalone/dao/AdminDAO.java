@@ -36,7 +36,7 @@ public class AdminDAO {
          
  }
    
- public boolean select(Admin admin) throws SQLException{
+ public boolean readAdmin(Admin admin) throws SQLException{
      
      String sql = "select * from admin where login=? and pass=?";
      PreparedStatement stmt = connection.prepareStatement(sql);
