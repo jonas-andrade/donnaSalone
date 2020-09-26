@@ -32,6 +32,12 @@ public class ServiceView extends javax.swing.JFrame {
         this.view = new AdminView();
         controller = new ServiceController(this);
         setLocationRelativeTo(null);
+          try {
+               this.controller.checked();
+           } catch (SQLException ex) {
+               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
+           }
+          
       
           
         
@@ -89,17 +95,9 @@ public class ServiceView extends javax.swing.JFrame {
 
             },
             new String [] {
-                "nome", "preço", "tipo", "descrição"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-        });
+        ));
         jTDados.setToolTipText("");
         jTDados.setGridColor(new java.awt.Color(255, 248, 248));
         jTDados.setName(""); // NOI18N
@@ -199,12 +197,11 @@ public class ServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-       try {
+  try {
                this.controller.checked();
            } catch (SQLException ex) {
                Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
-           }
-    
+           }      
         
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
@@ -224,7 +221,6 @@ public class ServiceView extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
          
-          
     }//GEN-LAST:event_formWindowOpened
 
     public JComboBox<String> getjComboBox1() {

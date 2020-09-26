@@ -10,8 +10,8 @@ public Service(){
     
 }
 
-    public Service(int idService, String nomeService, float precoService, char typeService, String describeService) {
-        this.idService = idService;
+    public Service(String nomeService, float precoService, char typeService, String describeService) {
+        
         this.nomeService = nomeService;
         this.precoService = precoService;
         this.typeService = typeService;
@@ -60,6 +60,11 @@ public Service(){
 
     public void setIdService(int idService) {
         this.idService = idService;
+    }
+
+    @Override
+    public String toString() {
+        return "Service{" + "idService=" + idService + ", nomeService=" + nomeService + ", precoService=" + precoService + ", typeService=" + typeService + ", describeService=" + describeService + '}';
     }
 
   

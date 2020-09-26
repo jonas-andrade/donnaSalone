@@ -5,23 +5,21 @@
  */
 package com.mycompany.donnasalone.controll;
 
-import com.mycompany.donnasalone.dao.AddressDAO;
-import com.mycompany.donnasalone.dao.ClientDAO;
-import com.mycompany.donnasalone.dao.Conex;
+import com.mycompany.donnasalone.model.ServiceTab;
+import com.mycompany.donnasalone.model.ClientTab;
+import com.mycompany.donnasalone.model.AddressTab;
+
 import com.mycompany.donnasalone.dao.ServiceDAO;
-import com.mycompany.donnasalone.model.TAB;
+import com.mycompany.donnasalone.dao.ClientDAO;
+import com.mycompany.donnasalone.dao.AddressDAO;
+
+import com.mycompany.donnasalone.dao.Conex;
 
 import com.mycompany.donnasalone.view.ServiceView;
 
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.Vector;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
-import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
-
 
 /**
  *
@@ -41,19 +39,31 @@ public class ServiceController {
     
    
     public void checked() throws SQLException {
+        ServiceDAO sdao = new ServiceDAO(con);
+        ClientDAO cdao = new ClientDAO(con);
+        AddressDAO adao = new  AddressDAO(con);
         
-        String[] col = {"nomme","sjspo","fps", "","idsos"}; 
-            ServiceDAO sdao = new ServiceDAO(con);
-           TAB dt = new TAB(sdao.readService(),col);
+        if (view.getjComboBox1().getSelectedIndex() == 0){
+                     
+                    ServiceTab serviceTab = new ServiceTab(sdao.readService());
+                    view.getjTDados().setModel(serviceTab);
 
-            for (int i=0;i < dt.getRowCount();i++){
-                
-                dt.addRow(
-                sdao.readService().get(i)
-                );
-            }
+        }else if (view.getjComboBox1().getSelectedIndex() == 1){
+                   
+                    ClientTab clientTab = new ClientTab(cdao.readClient());
+                    view.getjTDados().setModel(clientTab); 
+        }else if (view.getjComboBox1().getSelectedIndex() == 2){
+            
+                   
+                   AddressTab addressTab = new AddressTab(adao.readAddress());
+                    view.getjTDados().setModel(addressTab);
+        }
+       
+           
+    
            
              
+    
     }//end function//end function
 
     

@@ -2,6 +2,7 @@
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Register.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/controll/AdminController.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Address.java
+/home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/TAB.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Contact.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/dao/Conex.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Service.java
