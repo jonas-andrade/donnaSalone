@@ -7,16 +7,13 @@
 package com.mycompany.donnasalone.view;
 
 import com.mycompany.donnasalone.controll.ServiceController;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-
 
 /**
  *
@@ -25,14 +22,17 @@ import javax.swing.JTextField;
 public class ServiceView extends javax.swing.JFrame {
        private final AdminView view;
     private final ServiceController controller;
+   
     
 
     /** Creates new form ServiceView */
     public ServiceView() {
         initComponents();
+        
         this.view = new AdminView();
         controller = new ServiceController(this);
         setLocationRelativeTo(null);
+      
           
         
     }
@@ -52,7 +52,7 @@ public class ServiceView extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTDados = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -81,35 +81,32 @@ public class ServiceView extends javax.swing.JFrame {
         jLabel1.setText("Serviços");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 41, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(0, 0, 0));
-        jTable1.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 13)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(26, 183, 247));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTDados.setBackground(new java.awt.Color(0, 0, 0));
+        jTDados.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 13)); // NOI18N
+        jTDados.setForeground(new java.awt.Color(26, 183, 247));
+        jTDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "       Nome", "       Preço", "       Tipo", "       descrição", "", "       "
+                "nome", "preço", "tipo", "descrição"
             }
-        ));
-        jTable1.setToolTipText("");
-        jTable1.setGridColor(new java.awt.Color(255, 248, 248));
-        jTable1.setName(""); // NOI18N
-        jTable1.setOpaque(false);
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jTDados.setToolTipText("");
+        jTDados.setGridColor(new java.awt.Color(255, 248, 248));
+        jTDados.setName(""); // NOI18N
+        jTDados.setOpaque(false);
+        jTDados.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTDados.setShowGrid(true);
+        jScrollPane1.setViewportView(jTDados);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 740, 280));
 
@@ -212,8 +209,16 @@ public class ServiceView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    public JTable getjTDados() {
+        return jTDados;
+    }
+
+    public void setjTDados(JTable jTDados) {
+        this.jTDados = jTDados;
+    }
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-     
+//           controller.limpar();
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -230,38 +235,9 @@ public class ServiceView extends javax.swing.JFrame {
         this.jComboBox1 = jComboBox1;
     }
 
-    public JScrollPane getjScrollPane1() {
-        return jScrollPane1;
-    }
 
-    public void setjScrollPane1(JScrollPane jScrollPane1) {
-        this.jScrollPane1 = jScrollPane1;
-    }
 
-    public JSeparator getjSeparator1() {
-        return jSeparator1;
-    }
-
-    public void setjSeparator1(JSeparator jSeparator1) {
-        this.jSeparator1 = jSeparator1;
-    }
-
-    public JTable getjTable1() {
-        return jTable1;
-    }
-
-    public void setjTable1(JTable jTable1) {
-        this.jTable1 = jTable1;
-    }
-
-    public JTextField getjTextField1() {
-        return jTextField1;
-    }
-
-    public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
-    }
-
+   
   
 
     /**
@@ -312,7 +288,7 @@ public class ServiceView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTDados;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
