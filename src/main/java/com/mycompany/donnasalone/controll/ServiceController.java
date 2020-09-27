@@ -14,12 +14,15 @@ import com.mycompany.donnasalone.dao.ClientDAO;
 import com.mycompany.donnasalone.dao.AddressDAO;
 
 import com.mycompany.donnasalone.dao.Conex;
+import com.mycompany.donnasalone.model.Client;
 
 import com.mycompany.donnasalone.view.ServiceView;
+import java.awt.Color;
 
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -43,20 +46,24 @@ public class ServiceController {
         ClientDAO cdao = new ClientDAO(con);
         AddressDAO adao = new  AddressDAO(con);
         
-        if (view.getjComboBox1().getSelectedIndex() == 0){
-                     
-                    ServiceTab serviceTab = new ServiceTab(sdao.readService());
-                    view.getjTDados().setModel(serviceTab);
-
-        }else if (view.getjComboBox1().getSelectedIndex() == 1){
-                   
-                    ClientTab clientTab = new ClientTab(cdao.readClient());
-                    view.getjTDados().setModel(clientTab); 
-        }else if (view.getjComboBox1().getSelectedIndex() == 2){
-            
-                   
-                   AddressTab addressTab = new AddressTab(adao.readAddress());
-                    view.getjTDados().setModel(addressTab);
+        switch (view.getjComboBox1().getSelectedIndex()) {
+            case 0:
+                view.getjComboBox2().setEnabled(false);
+                ServiceTab serviceTab = new ServiceTab(sdao.readService());
+                view.getjTDados().setModel(serviceTab);
+                break;
+            case 1:
+                view.getjComboBox2().setEnabled(true);
+                ClientTab clientTab = new ClientTab(cdao.readClient());
+                view.getjTDados().setModel(clientTab);
+                break;
+            case 2:
+                view.getjComboBox2().setEnabled(false);
+                AddressTab addressTab = new AddressTab(adao.readAddress());
+                view.getjTDados().setModel(addressTab);
+                break;
+            default:
+                break;
         }
        
            
@@ -68,35 +75,71 @@ public class ServiceController {
 
     
     
-//
-//    public void limpar() {
-//        
-//           view.getjTable1().setModel(new DefaultTableModel(
-//                  new Object [][] {
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null}, 
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null},
-//                {null, null, null, null}
-//            },
-//            new String [] {
-//                "       Nome", "       Preço", "       Tipo", "        Descrição"
-//            }
-//                 ));  
-//        
-//    }
-//   
+
+    public void limpar() {
+        
+           view.getjTDados().setModel(new DefaultTableModel(
+                  new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}, 
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "       Nome", "       Preço", "       Tipo", "        Descrição"
+            }
+                 ));  
+        
+    }
+
+    public void combobox() throws SQLException {
+        
+        
+            ClientDAO dao = new ClientDAO(con);
+            
+            
+            for (Client c: dao.readClient()){
+                
+                view.getjComboBox2().addItem(c.getNomeClient());
+                    
+            }
+
+        
+        
+    }
+
+    public void comboboxEvent() throws SQLException {
+        ClientDAO dao = new ClientDAO(con);
+        
+        for (int i=0;i<dao.readClient().size();i++){
+        if(view.getjComboBox2().getSelectedIndex()== i){
+            
+                      
+                       view.getjTDados().changeSelection(dao.readClient().get(i).getIdClient()-1, 0, false, true);
+                        view.getjTDados().setSelectionBackground(Color.decode("#ffffff"));
+                       view.getjTDados().setSelectionForeground(Color.decode("#000000"));
+                       
+            
+        }
+        
+        }
+        
+        
+    }
+
+  
+   
         
 }
 

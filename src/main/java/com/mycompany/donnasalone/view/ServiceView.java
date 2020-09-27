@@ -32,6 +32,14 @@ public class ServiceView extends javax.swing.JFrame {
         this.view = new AdminView();
         controller = new ServiceController(this);
         setLocationRelativeTo(null);
+              
+
+           try {
+               controller.combobox();
+           } catch (SQLException ex) {
+               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
           try {
                this.controller.checked();
            } catch (SQLException ex) {
@@ -89,7 +97,7 @@ public class ServiceView extends javax.swing.JFrame {
 
         jTDados.setBackground(new java.awt.Color(0, 0, 0));
         jTDados.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 13)); // NOI18N
-        jTDados.setForeground(new java.awt.Color(26, 183, 247));
+        jTDados.setForeground(new java.awt.Color(99, 177, 188));
         jTDados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -99,9 +107,11 @@ public class ServiceView extends javax.swing.JFrame {
             }
         ));
         jTDados.setToolTipText("");
+        jTDados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTDados.setGridColor(new java.awt.Color(255, 248, 248));
         jTDados.setName(""); // NOI18N
         jTDados.setOpaque(false);
+        jTDados.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTDados.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTDados.setShowGrid(true);
         jScrollPane1.setViewportView(jTDados);
@@ -165,7 +175,12 @@ public class ServiceView extends javax.swing.JFrame {
 
         jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox2.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "jose", "paulo", "carlos", "antonio", "mauro", "jairo", "dobre", "sales" }));
+        jComboBox2.setEnabled(false);
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 120, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,13 +230,24 @@ public class ServiceView extends javax.swing.JFrame {
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-//           controller.limpar();
+          controller.limpar();
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
          
     }//GEN-LAST:event_formWindowOpened
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+           try {
+               controller.comboboxEvent();
+           } catch (SQLException ex) {
+               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        
+        
+        
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     public JComboBox<String> getjComboBox1() {
         return jComboBox1;
@@ -230,6 +256,15 @@ public class ServiceView extends javax.swing.JFrame {
     public void setjComboBox1(JComboBox<String> jComboBox1) {
         this.jComboBox1 = jComboBox1;
     }
+
+    public JComboBox<Object> getjComboBox2() {
+        return jComboBox2;
+    }
+
+    public void setjComboBox2(JComboBox<Object> jComboBox2) {
+        this.jComboBox2 = jComboBox2;
+    }
+
 
 
 
@@ -278,7 +313,7 @@ public class ServiceView extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<Object> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
