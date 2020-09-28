@@ -7,6 +7,7 @@ package com.mycompany.donnasalone.dao;
 
 import com.mycompany.donnasalone.model.Client;
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,12 +24,29 @@ public class ClientDAO {
    private final Connection con;
     private PreparedStatement stmt;
     private ResultSet result;
-    private final SimpleDateFormat sm = new SimpleDateFormat("dd/MM/yyyy");
+    
     
     public ClientDAO(Connection con){
         this.con =con;
         
     }
+    
+   public void create(Client client) throws SQLException{
+ 
+       stmt = con.prepareStatement("insert into client(nomeClient,emailClient,telephoneClient,dateClient,sexoClient)values (?,?,?,?,?)");
+       stmt.setString(0, client.getNomeClient());
+       stmt.setString(1, client.getEmailClient());
+       stmt.setString(2, client.getTelephoneClient());
+       stmt.setString(3, client.getDataDeNascimento());
+       stmt.setString(4, client.getSexoClient());
+       stmt.execute();
+       stmt.close();
+   }
+    
+    
+    
+    
+    
     
     public List<Client> readClient() throws SQLException{
            List<Client> list = new ArrayList<>();
@@ -41,7 +59,7 @@ public class ClientDAO {
             client.setIdClient(result.getInt("idClient"));
             client.setNomeClient(result.getString("nomeClient"));
             client.setSexoClient(result.getString("sexoClient"));
-            client.setDataDeNascimento(sm.format(result.getDate("dateClient")));
+            client.setDataDeNascimento(result.getString("dateClient"));
             client.setEmailClient(result.getString("emailClient"));
             client.setTelephoneClient(result.getString("telephoneClient"));
             

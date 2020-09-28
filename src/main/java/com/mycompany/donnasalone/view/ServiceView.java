@@ -32,13 +32,6 @@ public class ServiceView extends javax.swing.JFrame {
         this.view = new AdminView();
         controller = new ServiceController(this);
         setLocationRelativeTo(null);
-              
-
-           try {
-               controller.combobox();
-           } catch (SQLException ex) {
-               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
-           }
         
           try {
                this.controller.checked();
@@ -235,6 +228,11 @@ public class ServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+           try {
+               controller.combobox();
+           } catch (SQLException ex) {
+               Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
+           }
          
     }//GEN-LAST:event_formWindowOpened
 
@@ -244,7 +242,6 @@ public class ServiceView extends javax.swing.JFrame {
            } catch (SQLException ex) {
                Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
            }
-        
         
         
     }//GEN-LAST:event_jComboBox2ActionPerformed

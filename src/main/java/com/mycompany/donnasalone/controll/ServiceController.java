@@ -130,7 +130,7 @@ public class ServiceController {
         if(view.getjComboBox2().getSelectedIndex()== i){
             
                       
-                       view.getjTDados().changeSelection(dao.readClient().get(i).getIdClient()-1, 0, false, true);
+                       view.getjTDados().changeSelection((dao.readClient().get(i).getIdClient()-1), 0, false, true);
                         view.getjTDados().setSelectionBackground(Color.decode("#ffffff"));
                        view.getjTDados().setSelectionForeground(Color.decode("#000000"));
                        

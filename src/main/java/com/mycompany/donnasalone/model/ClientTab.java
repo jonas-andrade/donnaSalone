@@ -57,6 +57,7 @@ public class ClientTab extends AbstractTableModel {
                 return list.get(l).telephoneClient;
             default:
                 return null;
+                
         }
         
         

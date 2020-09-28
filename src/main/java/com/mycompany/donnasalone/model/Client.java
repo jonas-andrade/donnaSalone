@@ -1,5 +1,7 @@
 package com.mycompany.donnasalone.model;
 
+import java.util.Date;
+
 
 public class Client {
     int idClient;
@@ -23,6 +25,14 @@ public class Client {
         this.telephoneClient = telephoneClient;
     }
 
+    public Client(String name, String sexo, String nasc, String email, String tel) {
+         this.nomeClient = name;
+        this.sexoClient = sexo;
+        this.dataDeNascimento = nasc;
+        this.emailClient = email;
+        this.telephoneClient = tel;
+    }
+     
     public int getIdClient() {
         return idClient;
     }
