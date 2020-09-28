@@ -14,6 +14,7 @@ import com.mycompany.donnasalone.dao.ClientDAO;
 import com.mycompany.donnasalone.dao.AddressDAO;
 
 import com.mycompany.donnasalone.dao.Conex;
+
 import com.mycompany.donnasalone.model.Client;
 
 import com.mycompany.donnasalone.view.ServiceView;
@@ -44,6 +45,7 @@ public class ServiceController {
     public void checked() throws SQLException {
         ServiceDAO sdao = new ServiceDAO(con);
         ClientDAO cdao = new ClientDAO(con);
+      
         AddressDAO adao = new  AddressDAO(con);
         
         switch (view.getjComboBox1().getSelectedIndex()) {
@@ -77,6 +79,7 @@ public class ServiceController {
     
 
     public void limpar() {
+        view.getjComboBox2().setEnabled(false);
         
            view.getjTDados().setModel(new DefaultTableModel(
                   new Object [][] {
@@ -100,6 +103,7 @@ public class ServiceController {
                 "       Nome", "       Preço", "       Tipo", "        Descrição"
             }
                  ));  
+           
         
     }
 

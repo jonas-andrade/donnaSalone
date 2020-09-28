@@ -42,6 +42,8 @@ public class ClientDAO {
             client.setNomeClient(result.getString("nomeClient"));
             client.setSexoClient(result.getString("sexoClient"));
             client.setDataDeNascimento(sm.format(result.getDate("dateClient")));
+            client.setEmailClient(result.getString("emailClient"));
+            client.setTelephoneClient(result.getString("telephoneClient"));
             
             list.add(client);
             

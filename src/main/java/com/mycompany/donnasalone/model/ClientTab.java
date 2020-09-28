@@ -15,13 +15,15 @@ import javax.swing.table.AbstractTableModel;
 public class ClientTab extends AbstractTableModel {
 
   
-    private final List<Client> list;
+    private final  List<Client> list;
+   
  
-    private String[] col= {"Nome","Sexo","Nascimento"};;
+    private  String[] col= {"Nome","Sexo","Nascimento","E-mail","Telefone"};;
     
 
     public ClientTab(List<Client> list) {
         this.list = list;
+        
         
         this.fireTableDataChanged();
     }
@@ -49,6 +51,10 @@ public class ClientTab extends AbstractTableModel {
                 return list.get(l).sexoClient;
             case 2:
                 return list.get(l).dataDeNascimento;
+            case 3:
+                return list.get(l).emailClient;
+            case 4:
+                return list.get(l).telephoneClient;
             default:
                 return null;
         }
