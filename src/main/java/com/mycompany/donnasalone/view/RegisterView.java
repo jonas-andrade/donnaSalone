@@ -66,10 +66,10 @@ public class RegisterView extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(98, 98, 121));
+        jLabel1.setFont(new java.awt.Font("DejaVu Sans", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(180, 180, 224));
         jLabel1.setText("Tela de cadastro");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 20, 430, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 400, -1));
 
         jButtonSave.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
         jButtonSave.setText("Save");
@@ -78,14 +78,14 @@ public class RegisterView extends javax.swing.JFrame {
                 jButtonSaveActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 120, -1));
-        getContentPane().add(jTextFieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 324, -1));
-        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 324, -1));
+        getContentPane().add(jButtonSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 210, 30));
+        getContentPane().add(jTextFieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 290, -1));
+        getContentPane().add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 290, -1));
 
-        jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 18)); // NOI18N
         jLabel2.setText("nome:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
-        getContentPane().add(jTextFieldTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 324, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 110, -1));
+        getContentPane().add(jTextFieldTelephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 210, -1));
 
         jRadioButton1.setText("M");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,7 +93,7 @@ public class RegisterView extends javax.swing.JFrame {
                 jRadioButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 260, -1, -1));
+        getContentPane().add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
 
         jRadioButton2.setText("F");
         jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -101,40 +101,47 @@ public class RegisterView extends javax.swing.JFrame {
                 jRadioButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, -1, -1));
+        getContentPane().add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 18)); // NOI18N
         jLabel3.setText("Sexo:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, 59, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 59, -1));
 
-        jLabel4.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 18)); // NOI18N
         jLabel4.setText("Email:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 110, -1));
 
-        jLabel5.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 18)); // NOI18N
         jLabel5.setText("Telefone:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 140, -1));
 
-        jLabel6.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 18)); // NOI18N
         jLabel6.setText("Endereço:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 39));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 140, 20));
 
         jButtonComplement.setFont(new java.awt.Font("DejaVu Serif", 1, 14)); // NOI18N
+        jButtonComplement.setForeground(new java.awt.Color(230, 230, 230));
         jButtonComplement.setText("Complement");
         jButtonComplement.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonComplementActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonComplement, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 139, -1));
+        getContentPane().add(jButtonComplement, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 139, 30));
 
-        jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 18)); // NOI18N
         jLabel7.setText("Nascimento:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
-        getContentPane().add(jTextFieldNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 139, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 160, -1));
+
+        jTextFieldNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNascimentoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextFieldNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 150, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon("/home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/img/free")); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, 470));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -160,7 +167,8 @@ public class RegisterView extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButtonComplementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComplementActionPerformed
-        // TODO add your handling code here:
+        new AddressView().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButtonComplementActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -176,6 +184,10 @@ public class RegisterView extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_jButtonSaveActionPerformed
+
+    private void jTextFieldNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNascimentoActionPerformed
 
     public JRadioButton getjRadioButton1() {
         return jRadioButton1;
