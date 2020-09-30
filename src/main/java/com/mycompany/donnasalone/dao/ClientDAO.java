@@ -34,11 +34,11 @@ public class ClientDAO {
    public void create(Client client) throws SQLException{
  
        stmt = con.prepareStatement("insert into client(nomeClient,emailClient,telephoneClient,dateClient,sexoClient)values (?,?,?,?,?)");
-       stmt.setString(0, client.getNomeClient());
-       stmt.setString(1, client.getEmailClient());
-       stmt.setString(2, client.getTelephoneClient());
-       stmt.setString(3, client.getDataDeNascimento());
-       stmt.setString(4, client.getSexoClient());
+       stmt.setString(1, client.getNomeClient());
+       stmt.setString(2, client.getEmailClient());
+       stmt.setString(3, client.getTelephoneClient());
+       stmt.setString(4, client.getDataDeNascimento());
+       stmt.setString(5, client.getSexoClient());
        stmt.execute();
        stmt.close();
    }

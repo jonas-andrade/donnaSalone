@@ -13,25 +13,29 @@ import com.mycompany.donnasalone.view.RegisterView;
  * @author jonas
  */
 public class RegisterHelper {
-      private final RegisterView view;
+      private final  RegisterView view;
 
-    public RegisterHelper() {
-        this.view = new RegisterView();
+ 
+    public RegisterHelper(RegisterView view) {
+       this.view = view;
+                
     }
       
     public Client getClient(){
-        String name = view.getjTextFieldName().getText();
-        String email = view.getjTextFieldEmail().getText();
-        String nasc = view.getjTextFieldNascimento().getText();
-        String tel = view.getjTextFieldTelephone().getText();
         String sexo = null;
-        
-        if (view.getjRadioButton1().isSelected()){
+        if(view.getjRadioButton1().isSelected()){
             sexo = "M";
-        }else if (view.getjRadioButton2().isSelected()){
+        }else if(view.getjRadioButton2().isSelected()){
             sexo = "F";
         }
-        return new Client(name,sexo,nasc,email,tel);
+       
+       return new Client(view.getjTextFieldName().getText(),
+                          sexo,
+                          view.getjTextField1Nascimento().getText(),
+                          view.getjTextFieldEmail().getText(),
+                          view.getjTextFieldTelephone().getText());
+       
+     
         
     
     }

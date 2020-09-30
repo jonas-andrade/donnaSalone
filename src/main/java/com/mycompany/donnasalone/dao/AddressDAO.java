@@ -27,6 +27,20 @@ public class AddressDAO {
         this.con = con;
         
     }
+    
+    
+    public void createAddress(Address address) throws SQLException{
+        stmt = con.prepareStatement("insert into address (street,neighborhood,county,state,country,nationality) values (?,?,?,?,?,?)");
+        stmt.setString(1, address.getStreet());
+        stmt.setString(2, address.getNeighborhood());
+        stmt.setString(3, address.getCounty());
+        stmt.setString(4, address.getState());
+        stmt.setString(5, address.getCountry());
+        stmt.setString(6, address.getNationality());
+        stmt.execute();
+        stmt.close();
+        
+    }
   
     public List<Address> readAddress() throws SQLException{
         List<Address> list = new ArrayList<>();

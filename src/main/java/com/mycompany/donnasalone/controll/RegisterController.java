@@ -5,14 +5,17 @@
  */
 package com.mycompany.donnasalone.controll;
 
+
+import com.mycompany.donnasalone.controll.helpers.RegisterHelper;
 import com.mycompany.donnasalone.view.RegisterView;
 import com.mycompany.donnasalone.dao.Conex;
-import com.mycompany.donnasalone.controll.helpers.RegisterHelper;
+
 import com.mycompany.donnasalone.dao.ClientDAO;
 import com.mycompany.donnasalone.model.Client;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,22 +25,27 @@ public class RegisterController {
     
     private final Connection con;
     private final  RegisterView view;
+    private final RegisterHelper helper;
 
     public RegisterController(RegisterView view) {
         this.view = view;
         this.con = new Conex().getConnection();
+        this.helper = new RegisterHelper(view);
 
     }
 
     public void createClient() throws SQLException {
         
-        RegisterHelper rg = new RegisterHelper();
-        ClientDAO dao = new ClientDAO(con);
-        Client client = rg.getClient();
         
-       
+        ClientDAO dao = new ClientDAO(con);
+        Client client = helper.getClient();
+        
+       try{
         dao.create(client);
-          
+           JOptionPane.showMessageDialog(null, "cadastrado com sucesso!");
+       }catch(Exception e){
+           JOptionPane.showMessageDialog(null, "Ocorreu um erro ao tentar cadastrar"+e);
+       }
        
        
        

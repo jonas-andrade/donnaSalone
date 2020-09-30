@@ -52,7 +52,7 @@ public class RegisterView extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jButtonComplement = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldNascimento = new javax.swing.JTextField();
+        jTextField1Nascimento = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -132,13 +132,7 @@ public class RegisterView extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("DejaVu Sans Condensed", 0, 18)); // NOI18N
         jLabel7.setText("Nascimento:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 160, -1));
-
-        jTextFieldNascimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNascimentoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextFieldNascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 150, 30));
+        getContentPane().add(jTextField1Nascimento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 270, 170, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon("/home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/img/free")); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 420));
@@ -168,7 +162,7 @@ public class RegisterView extends javax.swing.JFrame {
 
     private void jButtonComplementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComplementActionPerformed
         new AddressView().setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_jButtonComplementActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -178,16 +172,15 @@ public class RegisterView extends javax.swing.JFrame {
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
       
         try {
+            //cadastra client
             controller.createClient();
+            this.setVisible(false);
+            
         } catch (SQLException ex) {
             Logger.getLogger(RegisterView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_jButtonSaveActionPerformed
-
-    private void jTextFieldNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNascimentoActionPerformed
 
     public JRadioButton getjRadioButton1() {
         return jRadioButton1;
@@ -203,6 +196,14 @@ public class RegisterView extends javax.swing.JFrame {
 
     public void setjRadioButton2(JRadioButton jRadioButton2) {
         this.jRadioButton2 = jRadioButton2;
+    }
+
+    public JTextField getjTextField1Nascimento() {
+        return jTextField1Nascimento;
+    }
+
+    public void setjTextField1Nascimento(JTextField jTextField1Nascimento) {
+        this.jTextField1Nascimento = jTextField1Nascimento;
     }
 
     public JTextField getjTextFieldEmail() {
@@ -221,14 +222,6 @@ public class RegisterView extends javax.swing.JFrame {
         this.jTextFieldName = jTextFieldName;
     }
 
-    public JTextField getjTextFieldNascimento() {
-        return jTextFieldNascimento;
-    }
-
-    public void setjTextFieldNascimento(JTextField jTextFieldNascimento) {
-        this.jTextFieldNascimento = jTextFieldNascimento;
-    }
-
     public JTextField getjTextFieldTelephone() {
         return jTextFieldTelephone;
     }
@@ -237,6 +230,11 @@ public class RegisterView extends javax.swing.JFrame {
         this.jTextFieldTelephone = jTextFieldTelephone;
     }
 
+    
+    
+    
+    
+    
     
     
     
@@ -298,9 +296,9 @@ public class RegisterView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JTextField jTextField1Nascimento;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldName;
-    private javax.swing.JTextField jTextFieldNascimento;
     private javax.swing.JTextField jTextFieldTelephone;
     // End of variables declaration//GEN-END:variables
 }
