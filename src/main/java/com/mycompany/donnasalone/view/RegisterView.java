@@ -166,7 +166,7 @@ public class RegisterView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonComplementActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-        new  ServiceView().setVisible(true);
+        new ServiceView().setVisible(true);
     }//GEN-LAST:event_formWindowClosed
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
@@ -175,6 +175,7 @@ public class RegisterView extends javax.swing.JFrame {
             //cadastra client
             controller.createClient();
             this.setVisible(false);
+            new ServiceView().setVisible(true);
             
         } catch (SQLException ex) {
             Logger.getLogger(RegisterView.class.getName()).log(Level.SEVERE, null, ex);
