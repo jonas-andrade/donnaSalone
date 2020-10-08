@@ -193,11 +193,12 @@
         <Component class="javax.swing.JComboBox" name="jComboBoxPais">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Argentina"/>
+                <StringItem index="1" value="Belga"/>
+                <StringItem index="2" value="Brasil"/>
+                <StringItem index="3" value="China"/>
+                <StringItem index="4" value="Zelandia"/>
               </StringArray>
             </Property>
           </Properties>
@@ -230,9 +231,11 @@
         <Component class="javax.swing.JLabel" name="jLabelNascionalidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Fira Sans Semi-Light" size="14" style="0"/>
+              <Font name="Fira Sans Semi-Light" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Brasileiro"/>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f1" green="a5" red="d" type="rgb"/>
+            </Property>
           </Properties>
         </Component>
       </SubComponents>

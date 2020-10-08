@@ -84,7 +84,7 @@ public class AddressView extends javax.swing.JFrame {
             }
         });
 
-        jComboBoxPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxPais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Argentina", "Belga", "Brasil", "China", "Zelandia" }));
         jComboBoxPais.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxPaisActionPerformed(evt);
@@ -102,8 +102,8 @@ public class AddressView extends javax.swing.JFrame {
             }
         });
 
-        jLabelNascionalidade.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
-        jLabelNascionalidade.setText("Brasileiro");
+        jLabelNascionalidade.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 18)); // NOI18N
+        jLabelNascionalidade.setForeground(new java.awt.Color(13, 165, 241));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -223,7 +223,8 @@ public class AddressView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBoxPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPaisActionPerformed
-        // TODO add your handling code here:
+        
+      controller.alter();
     }//GEN-LAST:event_jComboBoxPaisActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed

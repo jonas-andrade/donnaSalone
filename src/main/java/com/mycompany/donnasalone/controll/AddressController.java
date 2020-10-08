@@ -47,6 +47,21 @@ public class AddressController {
 
     }
 
+    public void alter() {
+       
+       
+          if(view.getjComboBoxPais().getSelectedItem() == view.getjComboBoxPais().getSelectedItem()){
+              
+              
+              view.getjLabelNascionalidade().setText((String) view.getjComboBoxPais().getSelectedItem());
+          }else{
+              System.out.println("Desconhecido!!");
+          }
+        
+        
+        
+    }
+
  
     
     
