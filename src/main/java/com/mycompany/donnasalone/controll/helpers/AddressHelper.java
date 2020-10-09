@@ -25,7 +25,8 @@ public class AddressHelper {
     String neighborhood = view.getjTextFieldBairro().getText();
     String county = view.getjTextFieldCidade().getText();
     String state = view.getjTextFieldEstado().getText();
-    String country = view.getjComboBoxPais().getItemAt(0);
+    String country = (String) view.getjComboBoxPais().getSelectedItem();
+    
     String nationality =  view.getjLabelNascionalidade().getText();
      return new Address(street,neighborhood,county,state,country,nationality);
     }

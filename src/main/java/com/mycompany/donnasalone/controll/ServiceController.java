@@ -127,10 +127,10 @@ public class ServiceController {
         ClientDAO dao = new ClientDAO(con);
         
         for (int i=0;i<dao.readClient().size();i++){
-        if(view.getjComboBox2().getSelectedIndex()== i){
+        if(view.getjComboBox2().getSelectedIndex()== dao.readClient().get(i).getIdClient()){
             
                       
-                       view.getjTDados().changeSelection((dao.readClient().get(i).getIdClient()-1), 0, false, true);
+                       view.getjTDados().changeSelection((dao.readClient().get(i).getIdClient()), 0, false, true);
                         view.getjTDados().setSelectionBackground(Color.decode("#ffffff"));
                        view.getjTDados().setSelectionForeground(Color.decode("#000000"));
                        
