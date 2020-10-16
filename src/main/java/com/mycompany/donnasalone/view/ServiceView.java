@@ -13,13 +13,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+
 import javax.swing.JTable;
+import javax.swing.JTextPane;
 
 /**
  *
  * @author jonas
  */
-public class ServiceView extends javax.swing.JFrame {
+public final class ServiceView extends javax.swing.JFrame {
        private final AdminView view;
     private final ServiceController controller;
    
@@ -28,7 +31,8 @@ public class ServiceView extends javax.swing.JFrame {
     /** Creates new form ServiceView */
     public ServiceView() {
         initComponents();
-        
+       
+        this.getMsggg().setVisible(false);
         this.view = new AdminView();
         controller = new ServiceController(this);
         setLocationRelativeTo(null);
@@ -58,6 +62,8 @@ public class ServiceView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
+        msggg = new javax.swing.JScrollPane();
+        jTextPanepppp = new javax.swing.JTextPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTDados = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
@@ -88,6 +94,10 @@ public class ServiceView extends javax.swing.JFrame {
         jLabel1.setText("Consulta____.");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 41, -1, -1));
 
+        msggg.setViewportView(jTextPanepppp);
+
+        jPanel1.add(msggg, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 570, 170));
+
         jTDados.setBackground(new java.awt.Color(0, 0, 0));
         jTDados.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 13)); // NOI18N
         jTDados.setForeground(new java.awt.Color(99, 177, 188));
@@ -115,6 +125,11 @@ public class ServiceView extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Descrição");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 140, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
@@ -180,7 +195,7 @@ public class ServiceView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 915, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +243,8 @@ public class ServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-           try {
+        
+        try {
                controller.combobox();
            } catch (SQLException ex) {
                Logger.getLogger(ServiceView.class.getName()).log(Level.SEVERE, null, ex);
@@ -246,6 +262,10 @@ public class ServiceView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        controller.desc();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public JComboBox<String> getjComboBox1() {
         return jComboBox1;
     }
@@ -261,6 +281,25 @@ public class ServiceView extends javax.swing.JFrame {
     public void setjComboBox2(JComboBox<Object> jComboBox2) {
         this.jComboBox2 = jComboBox2;
     }
+
+    public JTextPane getjTextPanepppp() {
+        return jTextPanepppp;
+    }
+
+    public void setjTextPanepppp(JTextPane jTextPanepppp) {
+        this.jTextPanepppp = jTextPanepppp;
+    }
+
+    public JScrollPane getMsggg() {
+        return msggg;
+    }
+
+    public void setMsggg(JScrollPane msggg) {
+        this.msggg = msggg;
+    }
+
+ 
+   
 
 
 
@@ -318,6 +357,8 @@ public class ServiceView extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTDados;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextPane jTextPanepppp;
+    private javax.swing.JScrollPane msggg;
     // End of variables declaration//GEN-END:variables
 
     public void showSms(String sms) {

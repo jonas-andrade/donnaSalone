@@ -24,6 +24,7 @@ import java.awt.Color;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -124,6 +125,7 @@ public class ServiceController {
     }
 
     public void comboboxEvent() throws SQLException {
+        
         ClientDAO dao = new ClientDAO(con);
         
         for (int i=0;i<dao.readClient().size();i++){
@@ -140,6 +142,26 @@ public class ServiceController {
         }
         
         
+    }
+
+    public void desc(){
+       
+        if (view.getjTDados().getSelectedRow() <= view.getjTDados().getRowCount()&& view.getjTDados().getSelectedRow() >= 0){
+            int selecionada = view.getjTDados().getSelectedRow();
+            Object valor = view.getjTDados().getValueAt(selecionada, 0); 
+              view.getjTDados().setVisible(false);
+              view.getMsggg().setVisible(true);
+              view.getjTextPanepppp().setText("deu certo.........");
+            
+        }else{
+         System.out.println("nada selecionado");
+  
+        }
+       
+
+         
+        
+          
     }
 
   
