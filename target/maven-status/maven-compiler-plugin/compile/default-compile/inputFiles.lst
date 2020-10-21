@@ -16,10 +16,12 @@
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/controll/AddressController.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/controll/RegisterController.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Register.java
+/home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/controll/helpers/ServiceHelper.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/view/AddressView.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/controll/helpers/AdminHelper.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/AddressTab.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/dao/AdminDAO.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/dao/ClientDAO.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Admin.java
+/home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/view/RegisterServiceView.java
 /home/jonas/NetBeansProjects/donnaSalone/src/main/java/com/mycompany/donnasalone/model/Client.java

@@ -11,6 +11,7 @@ import com.mycompany.donnasalone.controll.ServiceController;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -62,18 +63,20 @@ public final class ServiceView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
+        jButtonservice = new javax.swing.JButton();
         msggg = new javax.swing.JScrollPane();
         jTextPanepppp = new javax.swing.JTextPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTDados = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        jButtonClient = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jButtonDesc = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -94,9 +97,22 @@ public final class ServiceView extends javax.swing.JFrame {
         jLabel1.setText("Consulta____.");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 41, -1, -1));
 
+        jButtonservice.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonservice.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
+        jButtonservice.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonservice.setText("add Serviço");
+        jButtonservice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonserviceActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonservice, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 140, -1));
+
+        jTextPanepppp.setFont(new java.awt.Font("FreeSerif", 2, 24)); // NOI18N
+        jTextPanepppp.setForeground(new java.awt.Color(63, 96, 108));
         msggg.setViewportView(jTextPanepppp);
 
-        jPanel1.add(msggg, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 570, 170));
+        jPanel1.add(msggg, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 570, 100));
 
         jTDados.setBackground(new java.awt.Color(0, 0, 0));
         jTDados.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 13)); // NOI18N
@@ -121,17 +137,6 @@ public final class ServiceView extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 690, 270));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Descrição");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 140, -1));
-
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,7 +146,7 @@ public final class ServiceView extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, 100, 60));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 40, 100, 60));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
@@ -152,23 +157,23 @@ public final class ServiceView extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 140, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 140, -1));
 
         jLabel2.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 13)); // NOI18N
         jLabel2.setText("Buscar:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 230, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 230, -1));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Cadastrar");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClient.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonClient.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
+        jButtonClient.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonClient.setText("add Cliente");
+        jButtonClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonClientActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 140, -1));
+        jPanel1.add(jButtonClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 140, -1));
 
         jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 14)); // NOI18N
@@ -191,11 +196,46 @@ public final class ServiceView extends javax.swing.JFrame {
         });
         jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 180, -1));
 
+        jButtonDesc.setBackground(new java.awt.Color(255, 255, 255));
+        jButtonDesc.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
+        jButtonDesc.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonDesc.setText("Descrição");
+        jButtonDesc.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jButtonDescMouseDragged(evt);
+            }
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jButtonDescMouseMoved(evt);
+            }
+        });
+        jButtonDesc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButtonDescMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButtonDescMouseExited(evt);
+            }
+        });
+        jButtonDesc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDescActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonDesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 140, -1));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 40, 50, 60));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 908, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,10 +250,10 @@ public final class ServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClientActionPerformed
           new RegisterView().setVisible(true);
           this.setVisible(false);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonClientActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -262,8 +302,37 @@ public final class ServiceView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonserviceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonserviceActionPerformed
+       
+         new RegisterServiceView().setVisible(true);
+          this.setVisible(false);
+        
+    }//GEN-LAST:event_jButtonserviceActionPerformed
+
+    private void jButtonDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDescActionPerformed
+        
+    }//GEN-LAST:event_jButtonDescActionPerformed
+
+    private void jButtonDescMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDescMouseMoved
+       
+        
+    }//GEN-LAST:event_jButtonDescMouseMoved
+
+    private void jButtonDescMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDescMouseDragged
+        
+    }//GEN-LAST:event_jButtonDescMouseDragged
+
+    private void jButtonDescMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDescMouseEntered
         controller.desc();
+        
+    }//GEN-LAST:event_jButtonDescMouseEntered
+
+    private void jButtonDescMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonDescMouseExited
+       controller.out();
+    }//GEN-LAST:event_jButtonDescMouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        controller.del();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public JComboBox<String> getjComboBox1() {
@@ -296,6 +365,30 @@ public final class ServiceView extends javax.swing.JFrame {
 
     public void setMsggg(JScrollPane msggg) {
         this.msggg = msggg;
+    }
+
+    public JButton getjButtonClient() {
+        return jButtonClient;
+    }
+
+    public void setjButtonClient(JButton jButtonClient) {
+        this.jButtonClient = jButtonClient;
+    }
+
+    public JButton getjButtonservice() {
+        return jButtonservice;
+    }
+
+    public void setjButtonservice(JButton jButtonservice) {
+        this.jButtonservice = jButtonservice;
+    }
+
+    public JButton getjButtonDesc() {
+        return jButtonDesc;
+    }
+
+    public void setjButtonDesc(JButton jButtonDesc) {
+        this.jButtonDesc = jButtonDesc;
     }
 
  
@@ -347,7 +440,9 @@ public final class ServiceView extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonClient;
+    private javax.swing.JButton jButtonDesc;
+    private javax.swing.JButton jButtonservice;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<Object> jComboBox2;
     private javax.swing.JLabel jLabel1;

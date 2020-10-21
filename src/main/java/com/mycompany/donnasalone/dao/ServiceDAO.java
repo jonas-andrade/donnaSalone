@@ -12,6 +12,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -46,7 +48,7 @@ public class ServiceDAO {
                 service.setIdService(result.getInt("idService"));
                 service.setNomeService(result.getString("nomeService"));
                 service.setPrecoService(result.getFloat("precoService"));
-                service.setTypeService((char) result.getByte("typeService"));
+                service.setTypeService(result.getString("typeService"));
                 service.setDescribeService(result.getString("describeService")); 
                 listService.add(service);
                 
@@ -59,6 +61,22 @@ public class ServiceDAO {
         }
       
      return listService;   
+    }
+    public void delete(String nome){
+        try {
+            
+           
+            
+            stmt = connection.prepareStatement("delete from service where nomeService=?");
+            stmt.setString(1, nome);
+            stmt.execute();
+        } catch (SQLException ex) {
+           System.err.print("erro de sql");
+            
+            
+        }
+        
+        
     }
     
     
