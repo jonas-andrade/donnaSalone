@@ -12,6 +12,7 @@ com/mycompany/donnasalone/view/ServiceView$3.class
 com/mycompany/donnasalone/controll/helpers/AddressHelper.class
 com/mycompany/donnasalone/dao/AddressDAO.class
 com/mycompany/donnasalone/dao/ClientDAO.class
+com/mycompany/donnasalone/view/ServiceView$13.class
 com/mycompany/donnasalone/controll/AddressController.class
 com/mycompany/donnasalone/view/RegisterServiceView$2.class
 com/mycompany/donnasalone/view/RegisterServiceView.class
@@ -22,6 +23,5 @@ com/mycompany/donnasalone/view/ServiceView$7.class
 com/mycompany/donnasalone/view/ServiceView$4.class
 com/mycompany/donnasalone/view/RegisterServiceView$1.class
 com/mycompany/donnasalone/view/ServiceView$8.class
-com/mycompany/donnasalone/view/RegisterView$6.class
 com/mycompany/donnasalone/model/ServiceTab.class
 com/mycompany/donnasalone/view/ServiceView$11.class

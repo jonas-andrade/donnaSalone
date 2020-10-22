@@ -6,6 +6,10 @@
 package com.mycompany.donnasalone.view;
 
 import com.mycompany.donnasalone.controll.AddressController;
+import com.mycompany.donnasalone.controll.ServiceController;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -22,6 +26,7 @@ public class AddressView extends javax.swing.JFrame {
      */
     public AddressView() {
         initComponents();
+        
         this.controller = new AddressController(this);
         setLocationRelativeTo(null);
     }
@@ -213,8 +218,10 @@ public class AddressView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldEstadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+              
               controller.saveAddress();
               this.setVisible(false);
+              new ServiceView().setVisible(true);
               
         
         
@@ -228,8 +235,8 @@ public class AddressView extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxPaisActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
-       
-       
+            new ServiceView().setVisible(true);
+      
     }//GEN-LAST:event_formWindowClosed
 
     public JComboBox<String> getjComboBoxPais() {

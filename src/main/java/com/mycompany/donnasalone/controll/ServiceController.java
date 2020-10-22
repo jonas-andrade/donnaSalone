@@ -58,8 +58,9 @@ public class ServiceController {
         switch (view.getjComboBox1().getSelectedIndex()) {
             case 0:
                 view.getjComboBox2().setEnabled(false);
-                view.getjButtonClient().setEnabled(false);
                 view.getjButtonservice().setEnabled(true);
+                view.getjButtonClient().setEnabled(false);
+                view.getjButtonEndereco().setEnabled(false);
                 view.getjButtonDesc().setEnabled(true);
                 view.getjButtonDesc().setVisible(true);
 
@@ -73,6 +74,7 @@ public class ServiceController {
                 view.getjComboBox2().setEnabled(true);
                 view.getjButtonClient().setEnabled(true);
                 view.getjButtonservice().setEnabled(false);
+                view.getjButtonEndereco().setEnabled(false);
                 view.getjButtonDesc().setEnabled(false);
                 view.getjButtonDesc().setVisible(false);
                 
@@ -84,6 +86,7 @@ public class ServiceController {
                 view.getjComboBox2().setEnabled(false);
                 view.getjButtonClient().setEnabled(false);
                 view.getjButtonservice().setEnabled(false);
+                view.getjButtonEndereco().setEnabled(true);
                 view.getjButtonDesc().setEnabled(false);
                 view.getjButtonDesc().setVisible(false);
 
@@ -262,7 +265,7 @@ public class ServiceController {
             Logger.getLogger(ServiceController.class.getName()).log(Level.SEVERE, null, ex);
         }
                     
-                    JOptionPane.showMessageDialog(view, "Cliente Deletado com Sucesso!");
+                    JOptionPane.showMessageDialog(view, "Deletado com Sucesso!");
                     
                 }
                 
