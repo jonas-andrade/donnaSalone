@@ -208,7 +208,9 @@ public class ServiceController {
     }
 
     public void del() {
-        
+        if(!(view.getjTDados().getSelectedRow() <= view.getjTDados().getRowCount()&& view.getjTDados().getSelectedRow() >= 0)){
+            JOptionPane.showMessageDialog(view, "nada Selecionado! :D! \n porfavor selecione o item desejado");
+        }else{
         
           int conf = JOptionPane.showConfirmDialog(null,"Deseja Remover Cliente?","...", JOptionPane.YES_NO_OPTION);
             if (conf == JOptionPane.YES_OPTION){
@@ -262,10 +264,6 @@ public class ServiceController {
                     
                     JOptionPane.showMessageDialog(view, "Cliente Deletado com Sucesso!");
                     
-                }else{
-                    System.out.println("nada selecionado p delete");
-                    
-                    
                 }
                 
                 
@@ -277,7 +275,7 @@ public class ServiceController {
        
             
             
-            
+        }
             
             
             
