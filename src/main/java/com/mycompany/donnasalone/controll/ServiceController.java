@@ -5,7 +5,7 @@
  */
 package com.mycompany.donnasalone.controll;
 
-import com.mycompany.donnasalone.controll.helpers.ServiceHelper;
+
 import com.mycompany.donnasalone.model.ServiceTab;
 import com.mycompany.donnasalone.model.ClientTab;
 import com.mycompany.donnasalone.model.AddressTab;
@@ -25,6 +25,8 @@ import java.awt.Color;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -51,7 +53,6 @@ public class ServiceController {
     public void checked() throws SQLException {
         ServiceDAO sdao = new ServiceDAO(con);
         ClientDAO cdao = new ClientDAO(con);
-      
         AddressDAO adao = new  AddressDAO(con);
         
         switch (view.getjComboBox1().getSelectedIndex()) {
@@ -207,29 +208,89 @@ public class ServiceController {
     }
 
     public void del() {
-        int conf = JOptionPane.showConfirmDialog(null,"Deseja Remover Cliente?","...", JOptionPane.YES_NO_OPTION);
-        if (conf == JOptionPane.YES_OPTION){
+        
+        
+          int conf = JOptionPane.showConfirmDialog(null,"Deseja Remover Cliente?","...", JOptionPane.YES_NO_OPTION);
+            if (conf == JOptionPane.YES_OPTION){
+                
+                if (view.getjTDados().getSelectedRow() <= view.getjTDados().getRowCount()&& view.getjTDados().getSelectedRow() >= 0){
+                     try {
+            ServiceDAO sdao = new ServiceDAO(con);
+            ClientDAO cdao =  new ClientDAO(con);
+            AddressDAO adao = new AddressDAO(con);
             
-           if (view.getjTDados().getSelectedRow() <= view.getjTDados().getRowCount()&& view.getjTDados().getSelectedRow() >= 0){
             int selecionada = view.getjTDados().getSelectedRow();
-            ServiceDAO dao = new ServiceDAO(con);
             String n = (String) view.getjTDados().getValueAt(selecionada, 0);
-            dao.delete(n);
-            ServiceView service = new ServiceView();
             
-            service.setVisible(true);
-   
+            switch (view.getjComboBox1().getSelectedIndex()) {
+                case 0:
+                    sdao.delete(n);
+                    
+                    ServiceTab serviceTab = new ServiceTab(sdao.readService());
+                    view.getjTDados().setModel(serviceTab);
+                    
+                    break;
+                case 1:
+                    
+                    cdao.delete(n);
+                    view.getjComboBox2().removeItem(n);
+                    
+                    
+                    ClientTab clientTab = new ClientTab(cdao.readClient());
+                    view.getjTDados().setModel(clientTab);
+                 
+                      
+            
+            
+            
 
-        }else{
-            System.out.println("nada selecionado p delete");
-         
-  
-        } 
+                    
+                    break;
+                case 2:
+                    adao.delete(n);
+                    AddressTab addressTab = new AddressTab(adao.readAddress());
+                    view.getjTDados().setModel(addressTab);
+                    break;
+                default:
+                    break;
+            }
             
             
-        }else{
-            System.out.println("nada feito");
+             } catch (SQLException ex) {
+            Logger.getLogger(ServiceController.class.getName()).log(Level.SEVERE, null, ex);
         }
+                    
+                    JOptionPane.showMessageDialog(view, "Cliente Deletado com Sucesso!");
+                    
+                }else{
+                    System.out.println("nada selecionado p delete");
+                    
+                    
+                }
+                
+                
+            }else{
+                System.out.println("nada feito");
+            }
+        
+        
+       
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+       
         
     }
 

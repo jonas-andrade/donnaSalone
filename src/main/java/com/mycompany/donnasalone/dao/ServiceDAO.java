@@ -62,13 +62,13 @@ public class ServiceDAO {
       
      return listService;   
     }
-    public void delete(String nome){
+    public void delete(String id){
         try {
             
            
             
             stmt = connection.prepareStatement("delete from service where nomeService=?");
-            stmt.setString(1, nome);
+            stmt.setString(1, id);
             stmt.execute();
         } catch (SQLException ex) {
            System.err.print("erro de sql");

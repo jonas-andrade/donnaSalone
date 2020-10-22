@@ -74,6 +74,23 @@ public class AddressDAO {
         
         return list;
     }
+
+    public void delete(String id) {
+        
+          try {
+            
+           
+            
+            stmt = con.prepareStatement("delete from address where street=?");
+            stmt.setString(1, id);
+            stmt.execute();
+        } catch (SQLException ex) {
+           System.err.print("erro de sql");
+            
+            
+        }
+        
+    }
     
     
     

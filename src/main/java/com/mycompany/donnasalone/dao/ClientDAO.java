@@ -78,6 +78,21 @@ public class ClientDAO {
         return list;
     }
 
+    public void delete(String id) {
+        try {
+            
+           
+            
+            stmt = con.prepareStatement("delete from client where nomeClient=?");
+            stmt.setString(1, id);
+            stmt.execute();
+        } catch (SQLException ex) {
+           System.err.print("erro de sql");
+            
+            
+        }
+    }
+
   
     
     
