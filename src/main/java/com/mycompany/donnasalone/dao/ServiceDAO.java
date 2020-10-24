@@ -32,6 +32,30 @@ public class ServiceDAO {
         
     }
  
+    public void createService(Service service){
+        try {
+            String sql = "insert into service (idService,nomeService,precoService,typeService,describeService) values (?,?,?,?,?)";
+            
+            stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, service.getIdService());
+            stmt.setString(2,service.getNomeService());
+            stmt.setString(3,service.getPrecoService());
+            stmt.setString(4, service.getTypeService());
+            stmt.setString(5, service.getDescribeService());
+            stmt.execute();
+        } catch (SQLException ex) {
+           
+            try {
+                Logger.getLogger(ServiceDAO.class.getName()).log(Level.SEVERE, null, ex);
+                stmt.close();
+            } catch (SQLException ex1) {
+                Logger.getLogger(ServiceDAO.class.getName()).log(Level.SEVERE, null, ex1);
+            }
+        }
+
+
+                
+    }
     public List<Service> readService() throws SQLException{
         
         stmt =  null;
@@ -47,7 +71,7 @@ public class ServiceDAO {
                 Service service = new Service();
                 service.setIdService(result.getInt("idService"));
                 service.setNomeService(result.getString("nomeService"));
-                service.setPrecoService(result.getFloat("precoService"));
+                service.setPrecoService(result.getString("precoService"));
                 service.setTypeService(result.getString("typeService"));
                 service.setDescribeService(result.getString("describeService")); 
                 listService.add(service);

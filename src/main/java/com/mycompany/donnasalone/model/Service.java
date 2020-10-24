@@ -3,20 +3,22 @@ package com.mycompany.donnasalone.model;
 public class Service {
     int idService;
     String nomeService;
-    float precoService;
+    String precoService;
     String typeService;
     String describeService;
 public Service(){
     
 }
 
-    public Service(String nomeService, float precoService, String typeService, String describeService) {
-        
+    public Service(int idService, String nomeService, String precoService, String typeService, String describeService) {
+        this.idService = idService;
         this.nomeService = nomeService;
         this.precoService = precoService;
         this.typeService = typeService;
         this.describeService = describeService;
     }
+
+  
 
     
 
@@ -24,7 +26,7 @@ public Service(){
         return nomeService;
     }
 
-    public float getPrecoService() {
+    public String getPrecoService() {
         return precoService;
     }
 
@@ -40,7 +42,7 @@ public Service(){
         this.nomeService = nomeService;
     }
 
-    public void setPrecoService(float precoService) {
+    public void setPrecoService(String precoService) {
         this.precoService = precoService;
     }
 

@@ -6,6 +6,7 @@
 package com.mycompany.donnasalone.controll;
 
 
+import com.mycompany.donnasalone.controll.helpers.ServiceHelper;
 import com.mycompany.donnasalone.model.ServiceTab;
 import com.mycompany.donnasalone.model.ClientTab;
 import com.mycompany.donnasalone.model.AddressTab;
@@ -17,6 +18,7 @@ import com.mycompany.donnasalone.dao.AddressDAO;
 import com.mycompany.donnasalone.dao.Conex;
 
 import com.mycompany.donnasalone.model.Client;
+import com.mycompany.donnasalone.model.Service;
 import com.mycompany.donnasalone.view.RegisterServiceView;
 
 import com.mycompany.donnasalone.view.ServiceView;
@@ -107,8 +109,7 @@ public class ServiceController {
     }//end function//end function
 
     
-    
-
+ 
     public void limpar() {
         view.getjComboBox2().setEnabled(false);
         
@@ -292,6 +293,16 @@ public class ServiceController {
             
           
        
+        
+    }
+
+    public void createS() {
+        ServiceHelper helper = new ServiceHelper(views);
+        Service service = helper.getService();
+        ServiceDAO dao = new ServiceDAO(con);
+        
+        dao.createService(service);
+        JOptionPane.showMessageDialog(view, "Serviço cadastrado com sucesso!");
         
     }
 

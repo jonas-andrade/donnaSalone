@@ -5,6 +5,9 @@
  */
 package com.mycompany.donnasalone.view;
 
+import com.mycompany.donnasalone.controll.ServiceController;
+import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -40,11 +43,12 @@ public class RegisterServiceView extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldnome = new javax.swing.JTextField();
-        jTextFieldpreco = new javax.swing.JTextField();
-        jTextFieldtipo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextAreaDescricao = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBoxTipo = new javax.swing.JComboBox<>();
+        jFormattedTextFieldPreco = new javax.swing.JFormattedTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -55,31 +59,57 @@ public class RegisterServiceView extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("nome");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 14)); // NOI18N
+        jLabel1.setText("nome:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
-        jLabel2.setText("preço");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 14)); // NOI18N
+        jLabel2.setText("preço:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
-        jLabel3.setText("tipo");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 14)); // NOI18N
+        jLabel3.setText("tipo:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
 
-        jLabel4.setText("descrição");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-        jPanel1.add(jTextFieldnome, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 240, -1));
-        jPanel1.add(jTextFieldpreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 240, -1));
-        jPanel1.add(jTextFieldtipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 240, -1));
+        jLabel4.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 14)); // NOI18N
+        jLabel4.setText("Descrição:");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
+        jPanel1.add(jTextFieldnome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 240, -1));
 
-        jButton1.setText("jButton1");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 120, 100));
+        jButton1.setForeground(new java.awt.Color(80, 68, 68));
+        jButton1.setText("Salvar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 120, 30));
 
         jTextAreaDescricao.setColumns(20);
         jTextAreaDescricao.setRows(5);
         jScrollPane1.setViewportView(jTextAreaDescricao);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 310, 100));
+
+        jLabel5.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(27, 164, 241));
+        jLabel5.setText("Cadastro de Serviço");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+
+        jComboBoxTipo.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBoxTipo.setForeground(new java.awt.Color(80, 80, 80));
+        jComboBoxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   A -- serviço single Comon", "   B -- serviço package Básico", "   C -- serviço Premium", "   D -- serviço Convênio" }));
+        jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
+
+        try {
+            jFormattedTextFieldPreco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$ ##,##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        jPanel1.add(jFormattedTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 200, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +117,7 @@ public class RegisterServiceView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 732, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -108,9 +138,14 @@ public class RegisterServiceView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowClosed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new ServiceController(new ServiceView()).createS();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+        
+    
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -143,6 +178,25 @@ public class RegisterServiceView extends javax.swing.JFrame {
         });
     }
 
+    public JComboBox<String> getjComboBoxTipo() {
+        return jComboBoxTipo;
+    }
+
+    public void setjComboBoxTipo(JComboBox<String> jComboBoxTipo) {
+        this.jComboBoxTipo = jComboBoxTipo;
+    }
+
+    public JFormattedTextField getjFormattedTextFieldPreco() {
+        return jFormattedTextFieldPreco;
+    }
+
+    public void setjFormattedTextFieldPreco(JFormattedTextField jFormattedTextFieldPreco) {
+        this.jFormattedTextFieldPreco = jFormattedTextFieldPreco;
+    }
+
+  
+
+
     public JTextArea getjTextAreaDescricao() {
         return jTextAreaDescricao;
     }
@@ -154,46 +208,30 @@ public class RegisterServiceView extends javax.swing.JFrame {
     public JTextField getjTextFieldnome() {
         return jTextFieldnome;
     }
-
+ 
     public void setjTextFieldnome(JTextField jTextFieldnome) {
         this.jTextFieldnome = jTextFieldnome;
     }
 
-    public JTextField getjTextFieldpreco() {
-        return jTextFieldpreco;
-    }
-
-    public void setjTextFieldpreco(JTextField jTextFieldpreco) {
-        this.jTextFieldpreco = jTextFieldpreco;
-    }
-
-    public JTextField getjTextFieldtipo() {
-        return jTextFieldtipo;
-    }
-
-    public void setjTextFieldtipo(JTextField jTextFieldtipo) {
-        this.jTextFieldtipo = jTextFieldtipo;
-    }
+   
+ 
     
-    
-    
-    
-    
-    
+   
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBoxTipo;
+    private javax.swing.JFormattedTextField jFormattedTextFieldPreco;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextAreaDescricao;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldnome;
-    private javax.swing.JTextField jTextFieldpreco;
-    private javax.swing.JTextField jTextFieldtipo;
     // End of variables declaration//GEN-END:variables
 }

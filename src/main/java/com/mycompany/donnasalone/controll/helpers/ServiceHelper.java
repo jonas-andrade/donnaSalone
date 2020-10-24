@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.mycompany.donnasalone.controll.helpers;
-
+import com.mycompany.donnasalone.dao.ServiceDAO;
 import com.mycompany.donnasalone.model.Service;
 import com.mycompany.donnasalone.view.RegisterServiceView;
 
@@ -22,18 +22,37 @@ public class ServiceHelper {
         this.view = view;
     }
 
- 
-    
     public Service getService(){
-          
-      
-   
+        
+
     String nomeService = view.getjTextFieldnome().getText();
-    float precoService = Float.parseFloat(view.getjTextFieldpreco().getText());
-    String typeService = view.getjTextFieldtipo().getText();
+          String precoService = view.getjFormattedTextFieldPreco().getText();
+    String typeService;
+    switch(view.getjComboBoxTipo().getSelectedIndex()){
+        case 0:
+             typeService = "A"; 
+            break;
+        case 1:
+             typeService = "B"; 
+            break;
+        case 2:
+             typeService = "C"; 
+            break;
+        case 3:
+             typeService = "D"; 
+            break;
+        default:
+             typeService = "A";
+             break;
+                      
+    }
+           
+    
+    
+    
     String describeService = view.getjTextAreaDescricao().getText();
     
-     return new Service(nomeService, precoService, typeService, describeService);
+     return new Service(idService,nomeService, precoService, typeService, describeService);
     }
     
 }

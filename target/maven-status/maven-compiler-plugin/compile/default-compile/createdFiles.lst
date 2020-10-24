@@ -8,6 +8,7 @@ com/mycompany/donnasalone/view/ServiceView$12.class
 com/mycompany/donnasalone/controll/RegisterController.class
 com/mycompany/donnasalone/view/ServiceView$9.class
 com/mycompany/donnasalone/model/ClientTab.class
+com/mycompany/donnasalone/view/RegisterServiceView$3.class
 com/mycompany/donnasalone/view/ServiceView$3.class
 com/mycompany/donnasalone/controll/helpers/AddressHelper.class
 com/mycompany/donnasalone/dao/AddressDAO.class
