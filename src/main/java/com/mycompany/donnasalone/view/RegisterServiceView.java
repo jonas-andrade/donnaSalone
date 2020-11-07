@@ -6,8 +6,14 @@
 package com.mycompany.donnasalone.view;
 
 import com.mycompany.donnasalone.controll.ServiceController;
+import com.mycompany.donnasalone.controll.helpers.ServiceHelper;
+import com.mycompany.donnasalone.dao.Conex;
+import com.mycompany.donnasalone.dao.ServiceDAO;
+import com.mycompany.donnasalone.model.Service;
+import java.sql.Connection;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -42,13 +48,13 @@ public class RegisterServiceView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldnome = new javax.swing.JTextField();
+        texto_nome = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaDescricao = new javax.swing.JTextArea();
+        texto_descricao = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jComboBoxTipo = new javax.swing.JComboBox<>();
-        jFormattedTextFieldPreco = new javax.swing.JFormattedTextField();
+        texto_preco = new javax.swing.JFormattedTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -77,7 +83,7 @@ public class RegisterServiceView extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 14)); // NOI18N
         jLabel4.setText("Descrição:");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
-        jPanel1.add(jTextFieldnome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 240, -1));
+        jPanel1.add(texto_nome, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 240, -1));
 
         jButton1.setForeground(new java.awt.Color(80, 68, 68));
         jButton1.setText("Salvar");
@@ -88,9 +94,9 @@ public class RegisterServiceView extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 120, 30));
 
-        jTextAreaDescricao.setColumns(20);
-        jTextAreaDescricao.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaDescricao);
+        texto_descricao.setColumns(20);
+        texto_descricao.setRows(5);
+        jScrollPane1.setViewportView(texto_descricao);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 310, 100));
 
@@ -105,11 +111,11 @@ public class RegisterServiceView extends javax.swing.JFrame {
         jPanel1.add(jComboBoxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
 
         try {
-            jFormattedTextFieldPreco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$ ##,##")));
+            texto_preco.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("R$ ##,##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jPanel1.add(jFormattedTextFieldPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 200, -1));
+        jPanel1.add(texto_preco, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 200, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,7 +145,20 @@ public class RegisterServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new ServiceController(new ServiceView()).createS();
+//        new ServiceController(new ServiceView()).createS();
+
+        ServiceHelper helper = new ServiceHelper(this);
+        Service service = helper.getService();
+        Connection connection = new Conex().getConnection();
+        ServiceDAO dao = new ServiceDAO(connection);
+        
+        dao.createService(service);
+        JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso!");
+        
+
+
+
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
         
@@ -178,6 +197,30 @@ public class RegisterServiceView extends javax.swing.JFrame {
         });
     }
 
+    public JTextArea getTexto_descricao() {
+        return texto_descricao;
+    }
+
+    public void setTexto_descricao(JTextArea texto_descricao) {
+        this.texto_descricao = texto_descricao;
+    }
+
+    public JTextField getTexto_nome() {
+        return texto_nome;
+    }
+
+    public void setTexto_nome(JTextField texto_nome) {
+        this.texto_nome = texto_nome;
+    }
+
+    public JFormattedTextField getTexto_preco() {
+        return texto_preco;
+    }
+
+    public void setTexto_preco(JFormattedTextField texto_preco) {
+        this.texto_preco = texto_preco;
+    }
+
     public JComboBox<String> getjComboBoxTipo() {
         return jComboBoxTipo;
     }
@@ -186,35 +229,10 @@ public class RegisterServiceView extends javax.swing.JFrame {
         this.jComboBoxTipo = jComboBoxTipo;
     }
 
-    public JFormattedTextField getjFormattedTextFieldPreco() {
-        return jFormattedTextFieldPreco;
-    }
-
-    public void setjFormattedTextFieldPreco(JFormattedTextField jFormattedTextFieldPreco) {
-        this.jFormattedTextFieldPreco = jFormattedTextFieldPreco;
-    }
-
+  
   
 
 
-    public JTextArea getjTextAreaDescricao() {
-        return jTextAreaDescricao;
-    }
-
-    public void setjTextAreaDescricao(JTextArea jTextAreaDescricao) {
-        this.jTextAreaDescricao = jTextAreaDescricao;
-    }
-
-    public JTextField getjTextFieldnome() {
-        return jTextFieldnome;
-    }
- 
-    public void setjTextFieldnome(JTextField jTextFieldnome) {
-        this.jTextFieldnome = jTextFieldnome;
-    }
-
-   
- 
     
    
     
@@ -222,7 +240,6 @@ public class RegisterServiceView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBoxTipo;
-    private javax.swing.JFormattedTextField jFormattedTextFieldPreco;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -230,8 +247,9 @@ public class RegisterServiceView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaDescricao;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextFieldnome;
+    private javax.swing.JTextArea texto_descricao;
+    private javax.swing.JTextField texto_nome;
+    private javax.swing.JFormattedTextField texto_preco;
     // End of variables declaration//GEN-END:variables
 }

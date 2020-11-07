@@ -18,6 +18,13 @@ public Service(){
         this.describeService = describeService;
     }
 
+    public Service(String nomeService, String precoService, String typeService, String describeService) {
+        this.nomeService = nomeService;
+        this.precoService = precoService;
+        this.typeService = typeService;
+        this.describeService = describeService;
+    }
+
   
 
     
