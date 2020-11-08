@@ -25,7 +25,7 @@ import javax.swing.JTextPane;
  */
 public final class ServiceView extends javax.swing.JFrame {
        private final AdminView view;
-    private final ServiceController controller;
+       private final ServiceController controller;
    
     
 

@@ -40,14 +40,12 @@ import javax.swing.table.DefaultTableModel;
 public class ServiceController {
 
     private final ServiceView view;
-    private final RegisterServiceView registerView;
     private final Connection con;
     
     
 
     public ServiceController(ServiceView view){
          this.view = view;
-         this.registerView = new RegisterServiceView();
          this.con = new Conex().getConnection();
     }
     
@@ -284,19 +282,7 @@ public class ServiceController {
        
         
     }
-
-//    public void createS() {
-//        ServiceHelper helper = new ServiceHelper(registerView);
-//        Service service = helper.getService();
-//        ServiceDAO dao = new ServiceDAO(con);
-//        
-//        dao.createService(service);
-//        JOptionPane.showMessageDialog(registerView, "Serviço cadastrado com sucesso!");
-//        
-//    }
-
-  
-   
+     
         
 }
 

@@ -5,6 +5,7 @@
  */
 package com.mycompany.donnasalone.view;
 
+import com.mycompany.donnasalone.controll.RegisterServiceController;
 import com.mycompany.donnasalone.controll.ServiceController;
 import com.mycompany.donnasalone.controll.helpers.ServiceHelper;
 import com.mycompany.donnasalone.dao.Conex;
@@ -22,13 +23,14 @@ import javax.swing.JTextField;
  * @author jonas
  */
 public class RegisterServiceView extends javax.swing.JFrame {
-
+    private final RegisterServiceController controll;
     /**
      * Creates new form RegisterServiceView
      */
     public RegisterServiceView() {
         
         initComponents();
+        controll = new RegisterServiceController(this);
         setLocationRelativeTo(null);
         
     }
@@ -145,15 +147,10 @@ public class RegisterServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        new ServiceController(new ServiceView()).createS();
+       controll.addService();
 
-        ServiceHelper helper = new ServiceHelper(this);
-        Service service = helper.getService();
-        Connection connection = new Conex().getConnection();
-        ServiceDAO dao = new ServiceDAO(connection);
-        
-        dao.createService(service);
-        JOptionPane.showMessageDialog(this, "Serviço cadastrado com sucesso!");
+
+       
         
 
 
