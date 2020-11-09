@@ -57,10 +57,9 @@ public class ServiceDAO {
                 
     }
     public List<Service> readService() throws SQLException{
-        
-        stmt =  null;
+      
          List<Service> listService  = new ArrayList<>();
-         result = null;
+         
         
         try {
             stmt = connection.prepareStatement("select * from service");
@@ -93,13 +92,43 @@ public class ServiceDAO {
             
             stmt = connection.prepareStatement("delete from service where nomeService=?");
             stmt.setString(1, id);
-            stmt.execute();
+           result =  stmt.executeQuery();
+           
         } catch (SQLException ex) {
            System.err.print("erro de sql");
             
             
         }
         
+        
+    }
+
+    public List<Service> getsearch(String texto) {
+        
+        List<Service> listService  = new ArrayList<>();
+        
+        try {
+            
+            String sql = "select * from service where nomeService like '"+texto+"%'";
+            
+            stmt = connection.prepareStatement(sql);
+            result = stmt.executeQuery();
+             while(result.next()){
+                Service service = new Service();
+                service.setIdService(result.getInt("idService"));
+                service.setNomeService(result.getString("nomeService"));
+                service.setPrecoService(result.getString("precoService"));
+                service.setTypeService(result.getString("typeService"));
+                service.setDescribeService(result.getString("describeService")); 
+                listService.add(service);
+                
+            }  
+        } catch (SQLException ex) {
+            System.out.print("erro de SQL: "+ex);
+        }finally{
+            System.out.println("jojojoj");
+        }
+     return listService; 
         
     }
     

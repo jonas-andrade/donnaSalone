@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
 /**
@@ -72,13 +73,14 @@ public final class ServiceView extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        texto = new javax.swing.JTextField();
         jButtonEndereco = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButtonDesc = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButtonClient = new javax.swing.JButton();
+        ComboConsulta = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -163,8 +165,22 @@ public final class ServiceView extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Fira Sans Semi-Light", 1, 13)); // NOI18N
         jLabel2.setText("Buscar:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 70, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 230, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
+
+        texto.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                textoCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                textoInputMethodTextChanged(evt);
+            }
+        });
+        texto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                textoKeyPressed(evt);
+            }
+        });
+        jPanel1.add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 230, -1));
 
         jButtonEndereco.setBackground(new java.awt.Color(255, 255, 255));
         jButtonEndereco.setFont(new java.awt.Font("Fira Sans Semi-Light", 0, 14)); // NOI18N
@@ -246,6 +262,16 @@ public final class ServiceView extends javax.swing.JFrame {
         });
         jPanel1.add(jButtonClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 140, -1));
 
+        ComboConsulta.setBackground(new java.awt.Color(255, 255, 255));
+        ComboConsulta.setForeground(new java.awt.Color(255, 255, 255));
+        ComboConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Rua", "Bairro", "Cidade", "Estado", "País" }));
+        ComboConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboConsultaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ComboConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 110, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -274,7 +300,7 @@ public final class ServiceView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEnderecoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        controller.search();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
@@ -358,6 +384,22 @@ public final class ServiceView extends javax.swing.JFrame {
           this.setVisible(false);        
     }//GEN-LAST:event_jButtonClientActionPerformed
 
+    private void ComboConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboConsultaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboConsultaActionPerformed
+
+    private void textoInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_textoInputMethodTextChanged
+      
+    }//GEN-LAST:event_textoInputMethodTextChanged
+
+    private void textoCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_textoCaretPositionChanged
+        
+    }//GEN-LAST:event_textoCaretPositionChanged
+
+    private void textoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoKeyPressed
+      controller.search();
+    }//GEN-LAST:event_textoKeyPressed
+
     public JComboBox<String> getjComboBox1() {
         return jComboBox1;
     }
@@ -424,6 +466,18 @@ public final class ServiceView extends javax.swing.JFrame {
         this.jButtonEndereco = jButtonEndereco;
     }
 
+    public JTextField getTexto() {
+        return texto;
+    }
+
+    public void setTexto(JTextField texto) {
+        this.texto = texto;
+    }
+
+    public JComboBox<String> getComboConsulta() {
+        return ComboConsulta;
+    }
+
  
    
 
@@ -470,6 +524,7 @@ public final class ServiceView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboConsulta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -485,9 +540,9 @@ public final class ServiceView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTDados;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextPane jTextPanepppp;
     private javax.swing.JScrollPane msggg;
+    private javax.swing.JTextField texto;
     // End of variables declaration//GEN-END:variables
 
     public void showSms(String sms) {

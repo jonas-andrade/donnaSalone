@@ -6,6 +6,7 @@
 package com.mycompany.donnasalone.dao;
 
 import com.mycompany.donnasalone.model.Address;
+import com.mycompany.donnasalone.model.Service;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -89,6 +90,40 @@ public class AddressDAO {
             
             
         }
+        
+    }
+
+    public List<Address> getsearch(String texto,String atributo) {
+        List<Address> listAddress  = new ArrayList<>();
+        
+        try {
+            
+            String sql = "select * from address where "+atributo+" like '"+texto+"%'";
+            
+            stmt = con.prepareStatement(sql);
+            result = stmt.executeQuery();
+             
+              while(result.next()){
+            Address address =  new Address();
+            address.setIdAddress(result.getInt("idAddress"));
+            address.setStreet(result.getString("street"));
+            address.setNeighborhood(result.getString("neighborhood"));
+            address.setCounty(result.getString("county"));
+            address.setState(result.getString("state"));
+            address.setCountry(result.getString("country"));
+            address.setNationality(result.getString("nationality"));
+            listAddress.add(address);
+
+            
+        }     
+            
+        } catch (SQLException ex) {
+            System.out.print("erro de SQL: "+ex);
+        }finally{
+            System.out.println("jojojoj");
+        }
+     return listAddress; 
+       
         
     }
     

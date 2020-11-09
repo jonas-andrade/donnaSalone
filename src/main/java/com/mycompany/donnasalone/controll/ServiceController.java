@@ -61,6 +61,7 @@ public class ServiceController {
                 view.getjButtonservice().setEnabled(true);
                 view.getjButtonClient().setEnabled(false);
                 view.getjButtonEndereco().setEnabled(false);
+                view.getComboConsulta().setEnabled(false);
                 view.getjButtonDesc().setEnabled(true);
                 view.getjButtonDesc().setVisible(true);
 
@@ -75,6 +76,7 @@ public class ServiceController {
                 view.getjButtonClient().setEnabled(true);
                 view.getjButtonservice().setEnabled(false);
                 view.getjButtonEndereco().setEnabled(false);
+                view.getComboConsulta().setEnabled(false);
                 view.getjButtonDesc().setEnabled(false);
                 view.getjButtonDesc().setVisible(false);
                 
@@ -87,6 +89,7 @@ public class ServiceController {
                 view.getjButtonClient().setEnabled(false);
                 view.getjButtonservice().setEnabled(false);
                 view.getjButtonEndereco().setEnabled(true);
+                view.getComboConsulta().setEnabled(true);
                 view.getjButtonDesc().setEnabled(false);
                 view.getjButtonDesc().setVisible(false);
 
@@ -214,7 +217,7 @@ public class ServiceController {
             JOptionPane.showMessageDialog(view, "nada Selecionado! :D! \n porfavor selecione o item desejado");
         }else{
         
-          int conf = JOptionPane.showConfirmDialog(null,"Deseja Remover Cliente?","...", JOptionPane.YES_NO_OPTION);
+          int conf = JOptionPane.showConfirmDialog(null,"Deseja Remover registro?","...", JOptionPane.YES_NO_OPTION);
             if (conf == JOptionPane.YES_OPTION){
                 
                 if (view.getjTDados().getSelectedRow() <= view.getjTDados().getRowCount()&& view.getjTDados().getSelectedRow() >= 0){
@@ -243,11 +246,6 @@ public class ServiceController {
                     ClientTab clientTab = new ClientTab(cdao.readClient());
                     view.getjTDados().setModel(clientTab);
                  
-                      
-            
-            
-            
-
                     
                     break;
                 case 2:
@@ -281,6 +279,72 @@ public class ServiceController {
           
        
         
+    }
+
+    public void search() {
+                
+        
+       
+        ServiceDAO sdao = new ServiceDAO(con);
+        ClientDAO cdao = new ClientDAO(con);
+        AddressDAO adao = new  AddressDAO(con);
+        
+        String texto = view.getTexto().getText();
+        
+     
+        
+        
+      
+        switch (view.getjComboBox1().getSelectedIndex()) {
+                case 0:
+                  
+                       ServiceTab serviceTab = new ServiceTab(sdao.getsearch(texto));
+                       view.getjTDados().setModel(serviceTab);
+                    
+                    break;
+                case 1:
+                    
+                    ClientTab clientTab = new ClientTab(cdao.getsearch(texto));
+                    view.getjTDados().setModel(clientTab);
+               
+                    break;
+                case 2:
+                    String atributo;
+            switch (view.getComboConsulta().getSelectedIndex()) {
+                case 0:
+                    atributo = "street";
+                    break;
+                case 1:
+                    atributo = "neighborhood";
+                    break;
+                case 2:
+                    atributo = "county";
+                    break;
+                case 3:
+                    atributo = "state";
+                    break;
+                case 4:
+                    atributo = "country";
+                    break;
+                default:
+                    atributo = "street";
+                    break;
+            }
+                    AddressTab addressTab = new AddressTab(adao.getsearch(texto,atributo));
+                    view.getjTDados().setModel(addressTab);
+                    break;
+
+                default:
+                    break;
+            }
+            
+        
+        
+        
+        
+        
+        
+  
     }
      
         

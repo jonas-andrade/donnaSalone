@@ -6,6 +6,7 @@
 package com.mycompany.donnasalone.dao;
 
 import com.mycompany.donnasalone.model.Client;
+import com.mycompany.donnasalone.model.Service;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
@@ -91,6 +92,40 @@ public class ClientDAO {
             
             
         }
+    }
+
+    public List<Client> getsearch(String texto) {
+        
+              List<Client> listClient  = new ArrayList<>();
+        
+        try {
+            
+            String sql = "select * from client where nomeClient like '"+texto+"%'";
+            
+            stmt = con.prepareStatement(sql);
+            result = stmt.executeQuery();
+           
+             while(result.next()){
+            Client client = new Client();
+            client.setIdClient(result.getInt("idClient"));
+            client.setNomeClient(result.getString("nomeClient"));
+            client.setSexoClient(result.getString("sexoClient"));
+            client.setDataDeNascimento(result.getString("dateClient"));
+            client.setEmailClient(result.getString("emailClient"));
+            client.setTelephoneClient(result.getString("telephoneClient"));
+            
+            listClient.add(client);
+            
+            
+        }
+            
+            
+        } catch (SQLException ex) {
+            System.out.print("erro de SQL: "+ex);
+        }finally{
+            System.out.println("jojojoj");
+        }
+     return listClient; 
     }
 
   
