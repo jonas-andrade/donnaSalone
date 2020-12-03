@@ -36,6 +36,6 @@ describeService  text,
 primary key (idService) );
 
 
-insert into admin (login,pass) values ("jonas_admin","admin");
+insert into admin (login,pass) values ("jonas","admin");
 insert into client (nomeClient,sexoClient,dateClient,emailClient,telephoneClient) values ("client teste","M","0000-00-00","teste@email.com","00000000000");
 insert into service (nomeService,precoService,typeService,describeService) values ("service test","12,20","A","teste teste");
